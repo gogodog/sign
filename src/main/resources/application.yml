@@ -1,6 +1,8 @@
 # 端口
 server:
   port: 8080
+  servlet:
+    context-path: /sign
 spring:
   profiles:
     active: dev

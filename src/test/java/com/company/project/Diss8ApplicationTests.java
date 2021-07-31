@@ -1,9 +1,9 @@
-package com.pw.diss8;
+package com.pw.sign;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.pw.diss8.entity.SysUser;
-import com.pw.diss8.service.UserService;
+import com.pw.sign.entity.SysUser;
+import com.pw.sign.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class Diss8ApplicationTests {
         user.setUsername("admin");
         IPage<SysUser> list = this.userService.pageInfo(user);
         log.info(JSON.toJSONString(list));
-        Assert.assertFalse(1==1);
+        Assert.assertFalse(1 == 1);
     }
 
 }
