@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:include="module/head :: head"></head>
+</head>
+<body>
+<div class="wrapper coming-soon-page-wrapper">
+    <div th:replace="module/preloader :: preloader"></div>
+    <header th:replace="module/header :: header"></header>
+
+    <main class="main-content">
+        <section class="contact-area">
+            <div class="container-fluid p--0">
+                <div class="row no-gutter">
+                    <div class="col-12">
+                        <div class="contact-page-wrapper">
+                                <div class="column1">
+                                    <!--== Start Contact Form ==-->
+                                    <div class="contact-form contact-form-style2">
+                                        <h4 class="contact-form-title">填写信息</h4>
+                                        <form id="save-idea" action="/api/idea/save" method="POST">
+                                            <div class="row no-gutter">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="desc" placeholder="描述"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="step" placeholder="第一步"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="step" placeholder="第二步"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>选择标签</p>
+                                                    <div class="meta-tag">
+                                                        <a href="blog.html">Beauty</a><a href="blog.html">Beauty</a><a href="blog.html">Beauty</a><a href="blog.html">Beauty</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group mb--0">
+                                                        <button class="btn-theme" type="button" onclick="submitAjax()">提交</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!--== End Contact Form ==-->
+
+                                    <ul class="contact-info-list">
+                                        <li><span>时间:</span>2021-01-01 01:00:00</li>
+                                    </ul>
+
+                                    <!--== Message Notification ==-->
+                                    <div class="form-message"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="module/footer :: footer"></footer>
+    <div th:replace="module/to-top :: to-top"></div>
+    <div th:replace="module/auth :: auth"></div>
+    <aside th:replace="module/side-moible-menu :: side-menu"></aside>
+    <!--    <div th:replace="module/side-menu :: side-menu"></div>-->
+    <div th:replace="module/search :: search"></div>
+</div>
+<th:block th:include="module/footer-script"></th:block>
+<script src="/assets/js/jquery.form.js"></script>
+<script>
+    function submitAjax(){
+        let form = new FormData(document.getElementById("save-idea"));
+        setStep(form, "step");
+        $.ajax({
+            url:"/api/idea/save",
+            type:"post",
+            data:form,
+            processData:false,
+            contentType:false,
+            success:function(data){
+                console.log(data);
+            },
+            error:function(e){
+                console.log(e);
+            }
+        });
+    }
+    function setStep(f, name) {
+        let array  = document.getElementsByName(name);
+        for (let i = 0 ; i<array.length ; i++){
+            f.append(name + "s["+ i +"]", array[i].value);
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="module/head :: head"></head>
+<head>
+    <head th:include="module/head :: head"></head>
+</head>
 <body>
 <div class="wrapper">
     <div th:replace="module/preloader :: preloader"></div>
@@ -25,7 +27,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-thumb" data-bg-img="assets/img/slider/slider-04.jpg"></div>
+                            <div class="slider-thumb" data-bg-img="/assets/img/slider/slider-04.jpg"></div>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -42,7 +44,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-thumb" data-bg-img="assets/img/slider/slider-05.jpg"></div>
+                            <div class="slider-thumb" data-bg-img="/assets/img/slider/slider-05.jpg"></div>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -59,10 +61,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-thumb" data-bg-img="assets/img/slider/slider-06.jpg"></div>
+                            <div class="slider-thumb" data-bg-img="/assets/img/slider/slider-06.jpg"></div>
                         </div>
                     </div>
-
+                </div>
                     <!--== Add Swiper Arrows ==-->
                     <div class="social-icons">
                         <a href="#/"><i class="lastudioicon lastudioicon-b-facebook"></i></a>
@@ -76,7 +78,6 @@
                     <div class="swiper-button-next"><i class="lastudioicon-right-arrow"></i></div>
                     <div class="swiper-button-prev"><i class="lastudioicon-left-arrow"></i></div>
                 </div>
-            </div>
         </section>
         <!--== End Hero Area Wrapper ==-->
     </main>

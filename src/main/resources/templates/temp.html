@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="module/head :: head"></head>
+<head>
+    <head th:include="module/head :: head"></head>
+</head>
 <body>
 <div class="wrapper coming-soon-page-wrapper">
     <div th:replace="module/preloader :: preloader"></div>
