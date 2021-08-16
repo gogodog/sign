@@ -17,7 +17,12 @@ public class IndexController {
 
     @GetMapping("/")
     public String userList() {
-        return "main";
+        return "index";
+    }
+
+    @GetMapping("/t")
+    public String t() {
+        return "temp";
     }
 
 }
