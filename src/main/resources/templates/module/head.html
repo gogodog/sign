@@ -5,9 +5,10 @@
     <head th:fragment="head">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>Coming Soon – Optica - Creative Photography Studio HTML Template</title>
+        <title>感知</title>
 
         <!--== Favicon ==-->
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"/>
@@ -47,7 +48,48 @@
         <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script src="/assets/js/jSignature/JSignatureCustomer.js"></script>
         <![endif]-->
+        <script>
+            // // 禁用缩放
+            // function addMeta() {
+            //     $('head').append('<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />');
+            // }
+            // setTimeout(addMeta, 3000);
+
+            //判断手机横竖屏状态：
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+                // if (window.orientation === 180 || window.orientation === 0) {
+                //     alert('竖屏状态！');
+                // }
+                // if (window.orientation === 90 || window.orientation === -90 ){
+                //     alert('横屏状态！');
+                // }
+                location.reload();
+            }, false);
+
+            // 禁用双指放大
+            // document.documentElement.addEventListener('touchstart', function (event) {
+            //     if (event.touches.length > 1) {
+            //         event.preventDefault();
+            //     }
+            // }, {
+            //     passive: false
+            // });
+
+            // 禁用双击放大
+            // let lastTouchEnd = 0;
+            // document.documentElement.addEventListener('touchend', function (event) {
+            //     let now = Date.now();
+            //     if (now - lastTouchEnd <= 300) {
+            //         event.preventDefault();
+            //     }
+            //     lastTouchEnd = now;
+            // }, {
+            //     passive: false
+            // });
+            let smallScreen = window.screen.availWidth < 600;
+        </script>
     </head>
 </head>
 </head>

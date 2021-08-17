@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:include="module/head :: head"></head>
+</head>
+<body>
+<div class="wrapper coming-soon-page-wrapper">
+    <div th:replace="module/preloader :: preloader"></div>
+    <header th:replace="module/header :: header"></header>
+    <main class="main-content">
+        <section class="page-not-found-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-not-found-wrap">
+                            <div class="page-not-found-thumb">
+                                <img class="img-404-1" src="/assets/img/photos/404-1.svg" alt="Image-HasTech">
+                                <img class="img-404-2" src="/assets/img/photos/404-2.svg" alt="Image-HasTech">
+                                <img class="img-404-3" src="/assets/img/photos/404-3.svg" alt="Image-HasTech">
+                            </div>
+                            <div th:text="${msg}"></div>
+                            <div class="page-not-found-content">
+                                <h3 class="title"></h3>
+                                <p>系统繁忙，稍后再试!</p>
+                                <a class="btn-back" href="javascript:history.back(-1)">返回上页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="module/footer :: footer"></footer>
+    <div th:replace="module/to-top :: to-top"></div>
+    <div th:replace="module/auth :: auth"></div>
+    <aside th:replace="module/side-moible-menu :: side-menu"></aside>
+    <!--    <div th:replace="module/side-menu :: side-menu"></div>-->
+    <div th:replace="module/search :: search"></div>
+</div>
+<th:block th:include="module/footer-script"></th:block>
+</body>
+</html>

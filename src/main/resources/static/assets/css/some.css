@@ -4,3 +4,98 @@
     margin: 0px 3px 0px 3px;
     padding: 1px 2px 1px 2px;
 }
+.signwall a{
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #979797;
+    background-color: #fff;
+    color: #181818;
+    display: inline-block;
+    font-size: 16px;
+    padding: 15px 45px;
+    margin: 3px 10px 6px 10px;
+}
+.signwall img{
+    max-width: 15%;
+}
+.signwall-container{
+    max-width: 100%;
+}
+@media (max-width: 768px){
+    .signwall img {
+        max-width: 20%;
+    }
+    .signwall a{
+        font-size: 10px;
+        padding: 10px 25px;
+        margin: 1px 3px 2px 3px;
+    }
+}
+.width100p{
+    width: 100%;
+}
+.faq-accordion-body form .form-group .form-control {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #ebebeb;
+    border-radius: 0;
+    color: inherit;
+    display: inline-block;
+    font-size: 14px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 25px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+
+.faq-accordion-body form .form-group{
+    margin-bottom: 20px;
+}
+
+.faq-accordion-body form .list-group-item {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    line-height: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 24px;
+    color: #444;
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.faq-accordion-body form .list-group-item .form-check-input {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 0;
+    border: 1px solid #bbb;
+    -webkit-box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+    margin: 0;
+    margin-right: 18px;
+    background: none;
+    -webkit-filter: none;
+    filter: none;
+}
+
+.faq-accordion-body form .btn-theme {
+    border: none;
+    font-size: 14px;
+    height: 54px;
+    line-height: 54px;
+    padding: 0 18px;
+    width: 32%;
+}

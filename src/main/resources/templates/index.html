@@ -13,71 +13,38 @@
         <section class="home-slider-area">
             <div class="swiper-container home2-slider-container default-slider2-container">
                 <div class="swiper-wrapper home-slider-wrapper slider-default">
-                    <div class="swiper-slide">
+                    <div th:each="idea,stat : ${list}" class="swiper-slide">
                         <div class="slider-content-area">
-                            <a class="slider-link" href="#/"></a>
+                            <a class="slider-link" th:href="${'/fast/detail/'+idea.id}"></a>
                             <div class="slider-overlay"></div>
                             <div class="slider-content">
                                 <div class="container p--0">
                                     <div class="row align-items-center">
                                         <div class="col-12">
-                                            <h2 class="title">Hội An, Quang Nam <br>Province, Vietnam</h2>
-                                            <a class="btn-slider" href="about.html">Shop now</a>
+                                            <h2 class="title" style="font-size: 20px" th:text="${idea.ideaVo.title}"></h2>
+                                            <p th:text="${idea.ideaVo.desc}"></p>
+                                            <a class="btn-slider" th:href="${'/fast/detail/'+idea.id}">>>></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-thumb" data-bg-img="/assets/img/slider/slider-04.jpg"></div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slider-content-area">
-                            <a class="slider-link" href="#/"></a>
-                            <div class="slider-overlay"></div>
-                            <div class="slider-content">
-                                <div class="container p--0">
-                                    <div class="row align-items-center">
-                                        <div class="col-12">
-                                            <h2 class="title">Beautiful Flower</h2>
-                                            <a class="btn-slider" href="about.html">Shop now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slider-thumb" data-bg-img="/assets/img/slider/slider-05.jpg"></div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slider-content-area">
-                            <a class="slider-link" href="#/"></a>
-                            <div class="slider-overlay"></div>
-                            <div class="slider-content">
-                                <div class="container p--0">
-                                    <div class="row align-items-center">
-                                        <div class="col-12">
-                                            <h2 class="title">A close up of a swan.</h2>
-                                            <a class="btn-slider" href="about.html">Shop now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slider-thumb" data-bg-img="/assets/img/slider/slider-06.jpg"></div>
+                            <div class="slider-thumb" data-bg-img="/assets/img/index/background1.jpg"></div>
                         </div>
                     </div>
                 </div>
-                    <!--== Add Swiper Arrows ==-->
-                    <div class="social-icons">
-                        <a href="#/"><i class="lastudioicon lastudioicon-b-facebook"></i></a>
-                        <a href="#/"><i class="lastudioicon lastudioicon-b-twitter"></i></a>
-                        <a href="#/"><i class="lastudioicon lastudioicon-b-instagram"></i></a>
-                        <a href="#/"><i class="lastudioicon lastudioicon-envato"></i></a>
-                        <a href="#/"><i class="lastudioicon lastudioicon-b-dribbble"></i></a>
-                    </div>
+                <!--== Add Swiper Arrows ==-->
+                <div class="social-icons">
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-facebook"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-twitter"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-instagram"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-envato"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-dribbble"></i></a>
+                </div>
 
-                    <!--== Add Swiper Arrows ==-->
-                    <div class="swiper-button-next"><i class="lastudioicon-right-arrow"></i></div>
-                    <div class="swiper-button-prev"><i class="lastudioicon-left-arrow"></i></div>
-                </div>
+                <!--== Add Swiper Arrows ==-->
+                <div class="swiper-button-next"><i class="lastudioicon-right-arrow"></i></div>
+                <div class="swiper-button-prev"><i class="lastudioicon-left-arrow"></i></div>
+            </div>
         </section>
         <!--== End Hero Area Wrapper ==-->
     </main>

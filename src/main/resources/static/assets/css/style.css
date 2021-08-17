@@ -7957,6 +7957,12 @@ section .container-fluid {
     -o-transition: all 0.4s ease-out;
 }
 
+@media only screen and (max-width: 575px) {
+    .faq-accordion-wrapper .faq-accordion-button .elementor-toggle-icon-opened {
+        top: calc(-50% - -24px);
+    }
+}
+
 .faq-accordion-wrapper .faq-accordion-button:not(.collapsed) {
     color: #E89C86;
 }
@@ -11785,5 +11791,3 @@ section .container-fluid {
 .footer-area.footer-style2-area .footer-bottom .copyright a:hover {
     color: #ff631b;
 }
-
-.m

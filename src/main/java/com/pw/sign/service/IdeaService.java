@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.pw.sign.entity.Idea;
 import com.pw.sign.vo.IdeaVoRequest;
 
+import java.util.List;
+
 /**
  * 用户 服务类
  *
@@ -14,4 +16,6 @@ import com.pw.sign.vo.IdeaVoRequest;
 public interface IdeaService extends IService<Idea> {
 
     int newSave(IdeaVoRequest vo);
+
+    List<Idea> getList();
 }

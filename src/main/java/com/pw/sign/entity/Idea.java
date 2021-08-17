@@ -1,8 +1,11 @@
 package com.pw.sign.entity;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.annotation.*;
+import com.pw.sign.vo.IdeaVoRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -34,6 +37,9 @@ public class Idea extends BaseEntity implements Serializable {
     private String updater;
 
     private String idea;
+
+    @TableField(exist = false)
+    private IdeaVoRequest ideaVo;
 
     public Idea(Integer id, Integer deleted, String status, String tags, Date createTime, String creator, String creatorName, Date updateTime, String updater, String idea) {
         this.id = id;
@@ -130,5 +136,9 @@ public class Idea extends BaseEntity implements Serializable {
 
     public void setIdea(String idea) {
         this.idea = idea == null ? null : idea.trim();
+    }
+
+    public IdeaVoRequest getIdeaVo(){
+        return StringUtils.isEmpty(this.idea) ? null : JSONObject.parseObject(this.idea, IdeaVoRequest.class);
     }
 }
