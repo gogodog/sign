@@ -9,7 +9,9 @@ import com.pw.sign.entity.SignSign;
 import com.pw.sign.enums.Anonymous;
 import com.pw.sign.mapper.SignSignMapper;
 import com.pw.sign.service.SignService;
+import com.pw.sign.service.XUserService;
 import com.pw.sign.vo.IdeaSignVoRequest;
+import com.pw.sign.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -29,15 +31,23 @@ public class SignServiceImpl extends ServiceImpl<SignSignMapper, SignSign> imple
 
     @Resource
     private SignSignMapper signMapper;
+    @Resource
+    private XUserService xuserService;
 
     @Override
     public int sign(IdeaSignVoRequest vo) {
+        UserVo user = this.xuserService.getUserFromCookie();
         SignSign sign = new SignSign();
-        sign.setAnonymous(Anonymous.GUEST.getCode());
+        sign.setAnonymous(Anonymous.getAnonymous(user));
         sign.setType(vo.getSignType());
         sign.setIdeaId(vo.getIdeaId());
         sign.setInfo(JSONObject.toJSONString(vo));
         sign.setIp(vo.getIp());
+        if (user != null) {
+            sign.setCreator(user.getId());
+            sign.setCreatorHead(user.getHeadImg());
+            sign.setCreatorName(user.getNickName());
+        }
         return this.signMapper.insert(sign);
     }
 

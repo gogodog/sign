@@ -1,6 +1,7 @@
 package com.pw.sign.enums;
 
 
+import com.pw.sign.vo.UserVo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -21,4 +22,11 @@ public enum Anonymous {
     @Getter
     private final int code;
     private final String tag;
+
+    public static Integer getAnonymous(final UserVo vo) {
+        if (vo == null) {
+            return GUEST.code;
+        }
+        return NO_ANONYMOUS.code;
+    }
 }
