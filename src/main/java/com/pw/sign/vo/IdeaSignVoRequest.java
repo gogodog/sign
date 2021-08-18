@@ -10,5 +10,8 @@ public class IdeaSignVoRequest {
     private String firstName;
     private String signType;
     private String base64;
+    private String ip;
+    private String mac;
+    private String city;
 
 }

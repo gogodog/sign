@@ -138,7 +138,7 @@ public class Idea extends BaseEntity implements Serializable {
         this.idea = idea == null ? null : idea.trim();
     }
 
-    public IdeaVoRequest getIdeaVo(){
+    public IdeaVoRequest getIdeaVo() {
         return StringUtils.isEmpty(this.idea) ? null : JSONObject.parseObject(this.idea, IdeaVoRequest.class);
     }
 }

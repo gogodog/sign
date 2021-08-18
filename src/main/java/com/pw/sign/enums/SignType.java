@@ -14,7 +14,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SignType {
 
-    TEXT("TEXT", "填写名称");
+    TEXT("TEXT", "填写名称"),
+    HAND("HAND", "手写名称");
 
     @Getter
     private final String code;

@@ -15,13 +15,17 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <div class="page-header-content">
-                            <h2 class="title" data-aos="fade-down" data-aos-duration="1000" th:text="${idea.ideaVo.title}"></h2>
-                            <p data-aos="fade-down" data-aos-duration="1100" style="margin-top:2rem;text-indent:2rem;text-align: left;" th:text="${idea.ideaVo.desc}"></p>
+                            <h2 class="title" data-aos="fade-down" data-aos-duration="1000"
+                                th:text="${idea.ideaVo.title}"></h2>
+                            <p data-aos="fade-down" data-aos-duration="1100"
+                               style="margin-top:2rem;text-indent:2rem;text-align: left;"
+                               th:text="${idea.ideaVo.desc}"></p>
                             <nav class="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                                 <ul class="breadcrumb">
                                     <li><a href="index.html" th:text="${idea.creatorName}">张三</a></li>
-                                    <li class="breadcrumb-sep"> | </li>
-                                    <li><a href="javascript:return false;" th:text="${#dates.format(idea.createTime, 'yyyy-MM-dd')}"></a></li>
+                                    <li class="breadcrumb-sep"> |</li>
+                                    <li><a href="javascript:return false;"
+                                           th:text="${#dates.format(idea.createTime, 'yyyy-MM-dd')}"></a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -44,7 +48,8 @@
                             <blockquote class="blockquote-style2" th:each="step,stat:${idea.ideaVo.steps}">
                                 <div class="blockquote-content">
                                     <h4 class="quote-title" style="width:100%" th:text="${step}"></h4>
-                                    <p class="quote-text" th:text="${'第'+T(com.pw.sign.common.utils.NumUtils).intToCnIn10(stat.index)+'步'}"></p>
+                                    <p class="quote-text"
+                                       th:text="${'第'+T(com.pw.sign.common.utils.NumUtils).intToCnIn10(stat.index)+'步'}"></p>
                                 </div>
                             </blockquote>
                             <div class="blog-details-footer">
@@ -67,7 +72,8 @@
                                     <a href="#/"><img src="/assets/img/blog/author1.jpg" alt="Image-HasTech"></a>
                                 </div>
                                 <div class="author-info">
-                                    <h5 class="title"><a href="javascript:return false;" th:text="${idea.creatorName}">张三</a></h5>
+                                    <h5 class="title"><a href="javascript:return false;" th:text="${idea.creatorName}">张三</a>
+                                    </h5>
                                     <p>风带走的不一定是远去的，远去的不一定是带走的</p>
                                     <a href="btn-link"><i class="lastudioicon-b-facebook"></i></a>
                                     <a href="btn-link"><i class="lastudioicon-b-twitter"></i></a>
@@ -83,36 +89,54 @@
                                     <div class="faq-accordion-wrapper" id="inputSign">
                                         <div class="faq-accordion-item">
                                             <h2 class="faq-accordion-heading" id="flush-inputSign-headingOne">
-                                                <button class="faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-inputSign-collapseOne" aria-expanded="false" aria-controls="flush-inputSign-collapseOne">
+                                                <button class="faq-accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-inputSign-collapseOne"
+                                                        aria-expanded="false"
+                                                        aria-controls="flush-inputSign-collapseOne">
                                                     填写签名
-                                                    <span class="elementor-toggle-icon-closed"><i class="lastudioicon lastudioicon-e-add"></i></span>
-                                                    <span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
+                                                    <span class="elementor-toggle-icon-closed"><i
+                                                            class="lastudioicon lastudioicon-e-add"></i></span>
+                                                    <span class="elementor-toggle-icon-opened"><i
+                                                            class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
                                                 </button>
                                             </h2>
-                                            <div id="flush-inputSign-collapseOne" class="faq-accordion-collapse collapse" aria-labelledby="flush-inputSign-headingOne" data-bs-parent="#inputSign">
+                                            <div id="flush-inputSign-collapseOne"
+                                                 class="faq-accordion-collapse collapse"
+                                                 aria-labelledby="flush-inputSign-headingOne"
+                                                 data-bs-parent="#inputSign">
                                                 <div class="faq-accordion-body" style="text-align: center">
                                                     <form id="toTextSign" action="/api/sign/idea" method="post">
                                                         <div class="row row-gutter-20">
-                                                            <input style="display: none" name="ideaId" th:value="${idea.id}">
+                                                            <input style="display: none" name="ideaId"
+                                                                   th:value="${idea.id}">
                                                             <input style="display: none" name="signType" value="TEXT">
+                                                            <input style="display: none" name="ip">
+                                                            <input style="display: none" name="mac">
+                                                            <input style="display: none" name="city">
                                                             <div class="col-lg-6">
                                                                 <div class="form-group">
-                                                                    <input class="form-control" name="firstName" type="text" placeholder="姓">
+                                                                    <input class="form-control" name="firstName"
+                                                                           type="text" placeholder="姓">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="form-group">
-                                                                    <input class="form-control" name="lastName" type="text" placeholder="名">
+                                                                    <input class="form-control" name="lastName"
+                                                                           type="text" placeholder="名">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12">
                                                                 <label class="list-group-item">
-                                                                    <input class="form-check-input" type="checkbox" value="">保存签名信息
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                           value="">保存签名信息
                                                                 </label>
                                                             </div>
                                                             <div class="col-lg-12">
                                                                 <div class="form-submit-btn">
-                                                                    <button type="button" class="btn-theme" onclick="submitAjax('toTextSign')">签名</button>
+                                                                    <button type="button" class="btn-theme"
+                                                                            onclick="submitAjax('toTextSign')">签名
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -128,24 +152,41 @@
                                     <div class="faq-accordion-wrapper" id="handSign">
                                         <div class="faq-accordion-item">
                                             <h2 class="faq-accordion-heading" id="flush-handSign-headingOne">
-                                                <button id="handSign-btn" class="faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-handSign-collapseOne" aria-expanded="false" aria-controls="flush-handSign-collapseOne">
+                                                <button onclick="stopTouchMove('plus-btn')" id="handSign-btn"
+                                                        class="faq-accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-handSign-collapseOne"
+                                                        aria-expanded="false"
+                                                        aria-controls="flush-handSign-collapseOne">
                                                     手写签名
-                                                    <span class="elementor-toggle-icon-closed"><i class="lastudioicon lastudioicon-e-add"></i></span>
-                                                    <span class="elementor-toggle-icon-opened" id="plus-btn"><i class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
+                                                    <span class="elementor-toggle-icon-closed"><i
+                                                            class="lastudioicon lastudioicon-e-add"></i></span>
+                                                    <span class="elementor-toggle-icon-opened" id="plus-btn"><i
+                                                            class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
                                                 </button>
                                             </h2>
-                                            <div id="flush-handSign-collapseOne" class="faq-accordion-collapse collapse" aria-labelledby="flush-handSign-headingOne" data-bs-parent="#handSign">
+                                            <div id="flush-handSign-collapseOne" class="faq-accordion-collapse collapse"
+                                                 aria-labelledby="flush-handSign-headingOne" data-bs-parent="#handSign">
                                                 <div class="faq-accordion-body" style="text-align: center">
                                                     <div id="handSignArea" style="margin-bottom: 40px;"></div>
                                                     <form id="toHandSign" action="/api/sign/idea" method="post">
                                                         <div class="col-lg-12">
-                                                            <input style="display: none" name="ideaId" th:value="${idea.id}">
+                                                            <input style="display: none" name="ideaId"
+                                                                   th:value="${idea.id}">
                                                             <input style="display: none" name="signType" value="HAND">
+                                                            <input style="display: none" name="ip">
+                                                            <input style="display: none" name="mac">
+                                                            <input style="display: none" name="city">
                                                             <input style="display: none" id="handBse64" name="base64">
                                                             <div class="form-submit-btn">
-                                                                <button type="button" class="btn-theme" onclick="saveSignature('toHandSign')">签名</button>
-                                                                <button type="button" class="btn-theme" onclick="resetSignature()">清除</button>
-                                                                <button type="button" id="k1UnDo" class="btn-theme">撤销</button>
+                                                                <button type="button" class="btn-theme"
+                                                                        onclick="saveSignature('toHandSign')">签名
+                                                                </button>
+                                                                <button type="button" class="btn-theme"
+                                                                        onclick="resetSignature()">清除
+                                                                </button>
+                                                                <button type="button" id="k1UnDo" class="btn-theme">撤销
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -160,15 +201,23 @@
                                     <div class="faq-accordion-wrapper" id="faqAccordion">
                                         <div class="faq-accordion-item">
                                             <h2 class="faq-accordion-heading" id="flush-headingOne">
-                                                <button class="faq-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                <button class="faq-accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                        aria-expanded="false" aria-controls="flush-collapseOne">
                                                     艺术签名
-                                                    <span class="elementor-toggle-icon-closed"><i class="lastudioicon lastudioicon-e-add"></i></span>
-                                                    <span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
+                                                    <span class="elementor-toggle-icon-closed"><i
+                                                            class="lastudioicon lastudioicon-e-add"></i></span>
+                                                    <span class="elementor-toggle-icon-opened"><i
+                                                            class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
                                                 </button>
                                             </h2>
-                                            <div id="flush-collapseOne" class="faq-accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#faqAccordion">
+                                            <div id="flush-collapseOne" class="faq-accordion-collapse collapse"
+                                                 aria-labelledby="flush-headingOne" data-bs-parent="#faqAccordion">
                                                 <div class="faq-accordion-body" style="text-align: center">
-                                                    <p>Nulla imperdiet odio tempor nisl vulputate scelerisque. Fusce interdum ultricies convallis. Vivamus efficitur purus eu elit scelerisque blandit. Nullam viverra est quis erat fringilla, at rutrum sem lacinia.</p>
+                                                    <p>Nulla imperdiet odio tempor nisl vulputate scelerisque. Fusce
+                                                        interdum ultricies convallis. Vivamus efficitur purus eu elit
+                                                        scelerisque blandit. Nullam viverra est quis erat fringilla, at
+                                                        rutrum sem lacinia.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,11 +238,34 @@
                     <div class="col-lg-12 signwall">
                         <th:block th:if="${not #lists.isEmpty(signs)}">
                             <th:block th:each="sign:${signs}">
-                                <a th:if="${sign.type == 'TEXT'}" th:text="${sign.infoVo.firstName + sign.infoVo.lastName}" class="signtag"></a>
+                                <a th:if="${sign.type == 'TEXT'}"
+                                   th:text="${sign.infoVo.firstName + sign.infoVo.lastName}" class="signtag"></a>
                                 <img th:if="${sign.type == 'HAND'}" th:src="${sign.infoVo.base64}">
                             </th:block>
                         </th:block>
-                        <a>李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a>
+                        <a>李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
+                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a>
                         <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.hwary.net%2Fuploads%2Fallimg%2F161103%2Fbd116456837.jpg&refer=http%3A%2F%2Fwww.hwary.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631783086&t=c0ff8501011a6e96fd2c4b1f84958c16">
                         <img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
@@ -202,22 +274,16 @@
                         <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="http://www.kachayv.cn/1.png"><img
+                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="http://www.kachayv.cn/1.png"><img
+                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
@@ -225,12 +291,22 @@
 
                         <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="http://www.kachayv.cn/1.png"><img
+                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
+
+                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
                         <img src="http://www.kachayv.cn/1.png">
                         <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="http://www.kachayv.cn/1.png"><img
+                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
@@ -242,7 +318,8 @@
                         <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="http://www.kachayv.cn/1.png"><img
+                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
@@ -268,7 +345,8 @@
                         <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
+                        <img src="http://www.kachayv.cn/1.png"><img
+                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
@@ -292,17 +370,30 @@
 <th:block th:include="module/footer-script"></th:block>
 <script src="/assets/js/jquery.form.js"></script>
 <script src="/assets/js/jSignature/JSignatureCoustomer.js"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script>
-    function submitAjax(id){
-        $("#"+id).ajaxSubmit(function (response,status) {
+    function submitAjax(id) {
+        $("#" + id).ajaxSubmit(function (response, status) {
             console.log(JSON.stringify(response))
         });
+    }
+
+    function initLocalInfo() {
+        let lip = returnCitySN["cip"]
+        let lcity = returnCitySN["cname"]
+        // let lmac = 兼容性太差
+        let ips = document.getElementsByName("ip");
+        let citys = document.getElementsByName("city");
+        for (let i = 0; i < ips.length; i++) {
+            ips[i].value = lip;
+            citys[i].value = lcity;
+        }
     }
 
     function getTabBtnWidth(leftid, rightid) {
         let headObj = document.getElementById(leftid);
         let plusObj = document.getElementById(rightid);
-        let leftPadding =  getStyle(headObj, 'padding-left').replace('px', '');
+        let leftPadding = getStyle(headObj, 'padding-left').replace('px', '');
         let rightPadding = getStyle(plusObj, 'right').replace('px', '');
         let fontSize = getStyle(plusObj, 'font-size').replace('px', '');
         return headObj.clientWidth - leftPadding - rightPadding - fontSize;
@@ -313,12 +404,12 @@
     }
 
     function saveSignature(id) {
-        if( $(".jSignature").jSignature('getData', 'native').length === 0){
+        if ($(".jSignature").jSignature('getData', 'native').length === 0) {
             alert("请签名后再提交！");
             return;
         }
-        let con=confirm("提交后不可更改，确认提交签名？");
-        if(con===false) return;
+        let con = confirm("提交后不可更改，确认提交签名？");
+        if (con === false) return;
         // let datapair = $(".jSignature").jSignature("getData","svgbase64");
         var datapair = $(".jSignature").jSignature("getData", "image");
         $('#handBse64').val("data:" + datapair[0] + "," + datapair[1])
@@ -326,25 +417,43 @@
     }
 
     let tabBtnWidth = getTabBtnWidth('handSign-btn', 'plus-btn');
-    let param= {
+    let param = {
         width: tabBtnWidth,//签名区域的宽
         height: tabBtnWidth * 0.45,//签名区域的高
-        UndoButton:true,//撤销按钮的状态 这个按钮的样式修改要去jSignature.js文件中去找
-        DiyUndoButtonID:'#k1UnDo',
+        UndoButton: true,//撤销按钮的状态 这个按钮的样式修改要去jSignature.js文件中去找
+        DiyUndoButtonID: '#k1UnDo',
         signatureLine: false,//去除默认画布上那条横线
-        color: '#fac',
-        lineWidth: smallScreen ?'5':'10', //画笔的大小
+        color: '#46041e',
+        'decor-color': '#e50d0d',
+        lineWidth: smallScreen ? '5' : '10', //画笔的大小
     };
-    function getStyle(ele,attr) {
+
+    function getStyle(ele, attr) {
         if (ele.currentStyle) {
             return ele.currentStyle[attr];
         } else {
-            return document.defaultView.getComputedStyle(ele, true)[attr+''];
+            return document.defaultView.getComputedStyle(ele, true)[attr + ''];
         }
     }
+
+    function stopTouchMove(flag) {
+        if ($('#' + flag).css('display') == 'none') {
+            console.log('close')
+            document.body.addEventListener("touchmove", function (e) {
+                e.preventDefault();
+            });
+        } else {
+            console.log('open')
+            document.body.addEventListener("touchmove", function (e) {
+                e.returnValue = true;
+            });
+        }
+    }
+
     $(function () {
         $("#handSignArea").jSignature(param);
-        $(".jSignature").css({ "border": "1px solid" });
+        $(".jSignature").css({"border": "1px solid"});
+        initLocalInfo();
     });
 </script>
 </body>

@@ -37,6 +37,7 @@ public class SignServiceImpl extends ServiceImpl<SignSignMapper, SignSign> imple
         sign.setType(vo.getSignType());
         sign.setIdeaId(vo.getIdeaId());
         sign.setInfo(JSONObject.toJSONString(vo));
+        sign.setIp(vo.getIp());
         return this.signMapper.insert(sign);
     }
 

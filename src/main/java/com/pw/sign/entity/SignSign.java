@@ -203,7 +203,7 @@ public class SignSign extends BaseEntity implements Serializable {
         this.info = info == null ? null : info.trim();
     }
 
-    public IdeaSignVoRequest getInfoVo(){
+    public IdeaSignVoRequest getInfoVo() {
         return StringUtils.isEmpty(this.info) ? null : JSONObject.parseObject(this.info, IdeaSignVoRequest.class);
     }
 }

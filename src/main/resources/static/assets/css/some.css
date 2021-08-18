@@ -1,10 +1,11 @@
 @charset "UTF-8";
-.meta-tag a{
+.meta-tag a {
     border: 1px solid;
     margin: 0px 3px 0px 3px;
     padding: 1px 2px 1px 2px;
 }
-.signwall a{
+
+.signwall a {
     border-style: solid;
     border-width: 1px 1px 1px 1px;
     border-color: #979797;
@@ -15,25 +16,31 @@
     padding: 15px 45px;
     margin: 3px 10px 6px 10px;
 }
-.signwall img{
+
+.signwall img {
     max-width: 15%;
 }
-.signwall-container{
+
+.signwall-container {
     max-width: 100%;
 }
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
     .signwall img {
         max-width: 20%;
     }
-    .signwall a{
+
+    .signwall a {
         font-size: 10px;
         padding: 10px 25px;
         margin: 1px 3px 2px 3px;
     }
 }
-.width100p{
+
+.width100p {
     width: 100%;
 }
+
 .faq-accordion-body form .form-group .form-control {
     background-color: #fff;
     -webkit-box-shadow: none;
@@ -53,7 +60,7 @@
     -o-transition: all 0.3s ease-out;
 }
 
-.faq-accordion-body form .form-group{
+.faq-accordion-body form .form-group {
     margin-bottom: 20px;
 }
 

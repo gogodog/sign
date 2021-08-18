@@ -35,12 +35,12 @@ public class RouteController {
     SignService signService;
 
     @GetMapping("/route/{id}")
-    public String routePage(@PathVariable(value = "id")String id) {
+    public String routePage(@PathVariable(value = "id") String id) {
         return id;
     }
 
     @GetMapping("/detail/{id}")
-    public String detailPage(@PathVariable(value = "id")Integer id, ModelMap model) {
+    public String detailPage(@PathVariable(value = "id") Integer id, ModelMap model) {
         Idea idea = this.ideaService.getById(id);
         List<SignSign> signs = this.signService.listByIdeaId(id);
         model.put("idea", idea);

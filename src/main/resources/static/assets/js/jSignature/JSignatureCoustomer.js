@@ -540,10 +540,12 @@ jSignature v2 SVG export plugin.
                 , k = i - h
                 , l = l - 1.5 * h
                 , i = i - h;
-            c.beginPath();
-            c.moveTo(p, k);
-            c.lineTo(l, i);
-            c.stroke();
+            if (!d['signatureLine']) {
+                c.beginPath();
+                c.moveTo(p, k);
+                c.lineTo(l, i);
+                c.stroke();
+            }
             c.strokeStyle = d.color;
             f || (c.shadowColor = c.strokeStyle,
                 c.shadowOffsetX = 0.5 * c.lineWidth,
