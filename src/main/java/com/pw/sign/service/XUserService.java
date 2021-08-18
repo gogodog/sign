@@ -20,4 +20,6 @@ public interface XUserService extends IService<SysXUser> {
     SysXUser getXUserFromCookie();
 
     UserVo getUserFromCookie();
+
+    void logout();
 }

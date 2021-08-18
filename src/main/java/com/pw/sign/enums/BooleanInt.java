@@ -17,7 +17,7 @@ import lombok.Getter;
 public enum BooleanInt {
 
     YES(0, "T", "是", "有", "对", "已"),
-    NO(1, "F","否", "无", "错", "未");
+    NO(1, "F", "否", "无", "错", "未");
 
     @Getter
     private final int code;

@@ -13,10 +13,10 @@ public class CookieUtils {
 
     public static String getCookie(HttpServletRequest request, String cookieName) throws UnsupportedEncodingException {
 
-        Cookie[] cookies =  request.getCookies();
-        if(cookies != null){
-            for(Cookie cookie : cookies){
-                if(cookie.getName().equals(cookieName)){
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(cookieName)) {
                     return URLDecoder.decode(cookie.getValue(), UTF8);
                 }
             }
@@ -39,7 +39,7 @@ public class CookieUtils {
     }
 
     public static void deleteCookie(HttpServletResponse response, String cookieName) throws UnsupportedEncodingException {
-        setCookie(response,cookieName,null,0);
+        setCookie(response, cookieName, null, 0);
     }
 
 }

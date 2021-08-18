@@ -89,9 +89,9 @@
             //     passive: false
             // });
             let smallScreen = window.screen.availWidth < 600;
-            let alertResponse = function (res){
+            let alertResponse = function (res) {
                 console.log(JSON.stringify(res));
-                if(res.code != 0){
+                if (res.code != 0) {
                     alert(res.msg);
                 }
             }

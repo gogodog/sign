@@ -13,6 +13,6 @@ import java.io.UnsupportedEncodingException;
 public class NetUserControllerHelper {
     public static void secretAndSetCookie(SysXUser sysXUser, HttpServletResponse response) throws UnsupportedEncodingException {
         UserVo vo = Secret.userInfoForCookie(sysXUser);
-        CookieUtils.setCookie(response, Constant.USER_INFO_COOKIE_KEY, JSONObject.toJSONString(vo),Constant.USER_INFO_COOKIE_EXPIRE);
+        CookieUtils.setCookie(response, Constant.USER_INFO_COOKIE_KEY, JSONObject.toJSONString(vo), Constant.USER_INFO_COOKIE_EXPIRE);
     }
 }

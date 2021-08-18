@@ -30,12 +30,12 @@ public class NetUserController {
     @Resource
     SmsService smsService;
     @Resource
-    XUserService  xUserService;
+    XUserService xUserService;
 
     @PostMapping("/register")
     public DataResult register(@Valid RegisterVo vo, HttpServletResponse response) throws UnsupportedEncodingException {
-        boolean yes =  this.smsService.checkAuthCodeByAliYun(vo.getTel(), vo.getVerityCode());
-        if(yes){
+        boolean yes = this.smsService.checkAuthCodeByAliYun(vo.getTel(), vo.getVerityCode());
+        if (yes) {
             SysXUser user = xUserService.register(vo.getTel());
             NetUserControllerHelper.secretAndSetCookie(user, response);
             return DataResult.success(new UserVo(user));
@@ -45,10 +45,10 @@ public class NetUserController {
 
     @PostMapping("/login")
     public DataResult login(@Valid RegisterVo vo, HttpServletResponse response) throws UnsupportedEncodingException {
-        boolean yes =  this.smsService.checkAuthCodeByAliYun(vo.getTel(), vo.getVerityCode());
-        if(yes){
+        boolean yes = this.smsService.checkAuthCodeByAliYun(vo.getTel(), vo.getVerityCode());
+        if (yes) {
             SysXUser user = this.xUserService.getByPhone(vo.getTel());
-            if(user == null){
+            if (user == null) {
                 user = xUserService.register(vo.getTel());
             }
             NetUserControllerHelper.secretAndSetCookie(user, response);
@@ -57,10 +57,16 @@ public class NetUserController {
         return DataResult.getResult(BaseResponseCode.VERITY_CODE_NOT_VALID_EXCEPTION);
     }
 
+    @PostMapping("/logout")
+    public DataResult logout(HttpServletResponse response) {
+        xUserService.logout();
+        return DataResult.success();
+    }
+
     @PostMapping("/getCode")
     public DataResult getCode(String tel, String area) {
         boolean isSend = this.smsService.sendAuthCodeByAliYun(tel);
-        if(isSend){
+        if (isSend) {
             return DataResult.success();
         }
         return DataResult.getResult(BaseResponseCode.SYSTEM_BUSY);

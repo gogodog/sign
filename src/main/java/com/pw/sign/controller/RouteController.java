@@ -49,8 +49,8 @@ public class RouteController {
     @GetMapping("/route/u/{id}")
     public String routeLoginPage(@PathVariable(value = "id") String id, ModelMap model) {
         UserVo user = this.xuserService.getUserFromCookie();
-        if(user == null){
-            return "redirect:/fast/index?nLogin="+BooleanInt.YES.getEnCode();
+        if (user == null) {
+            return "redirect:/fast/index?nLogin=" + BooleanInt.YES.getEnCode();
         }
         return id;
     }

@@ -31,7 +31,7 @@ public class AliYunSmsConfig {
         AliYunSmsConfig.expire = expire;
     }
 
-        @Bean(name = "aliYunSms")
+    @Bean(name = "aliYunSms")
     public Client createClient() throws Exception {
         Config config = new Config().setAccessKeyId(key).setAccessKeySecret(secret);
         config.endpoint = endpoint;

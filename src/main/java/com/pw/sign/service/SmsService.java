@@ -11,5 +11,6 @@ import com.aliyun.dysmsapi20170525.models.SendSmsRequest;
  */
 public interface SmsService {
     boolean sendAuthCodeByAliYun(String phone);
+
     boolean checkAuthCodeByAliYun(String phone, String code);
 }

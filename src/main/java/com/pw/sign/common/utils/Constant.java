@@ -27,5 +27,5 @@ public class Constant {
     /**
      * 用户cookie expire(second)
      */
-    public static final int USER_INFO_COOKIE_EXPIRE = 60*60*24*7;
+    public static final int USER_INFO_COOKIE_EXPIRE = 60 * 60 * 24 * 7;
 }

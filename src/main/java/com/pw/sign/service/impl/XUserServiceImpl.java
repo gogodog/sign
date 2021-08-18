@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 
@@ -37,21 +38,24 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
     private SysXUserMapper sysXUserMapper;
     @Resource
     private HttpServletRequest request;
+    @Resource
+    private HttpServletResponse response;
 
 
     @Override
     public SysXUser register(String tel) {
         SysXUser oldUser = this.getByPhone(tel);
-        if(oldUser != null){
+        if (oldUser != null) {
             throw new BusinessException(BaseResponseCode.EXISTED_USER);
         }
-        SysXUser entity = newXuserByTel(tel);new SysXUser();
+        SysXUser entity = newXuserByTel(tel);
+        new SysXUser();
         entity.setCreateId("system");
         entity.setId(UUID.randomUUID().toString());
         entity.setPhone(tel);
-        entity.setUsername("user"+tel);
-        int i =  sysXUserMapper.insert(entity);
-        if(i != 1){
+        entity.setUsername("user" + tel);
+        int i = sysXUserMapper.insert(entity);
+        if (i != 1) {
             throw new BusinessException(BaseResponseCode.NEW_USER_ERRO);
         }
         return this.sysXUserMapper.selectById(entity.getId());
@@ -66,15 +70,15 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
 
     @Override
     public SysXUser getXUserFromCookie() {
-       UserVo vo = this.getUserFromCookie();
-       if(vo == null){
-           throw new BusinessException(BaseResponseCode.NO_LOGIN);
-       }
-       SysXUser user = this.sysXUserMapper.selectById(vo.getId());
-       if(user == null){
-           throw new BusinessException(BaseResponseCode.NO_USER);
-       }
-       return user;
+        UserVo vo = this.getUserFromCookie();
+        if (vo == null) {
+            throw new BusinessException(BaseResponseCode.NO_LOGIN);
+        }
+        SysXUser user = this.sysXUserMapper.selectById(vo.getId());
+        if (user == null) {
+            throw new BusinessException(BaseResponseCode.NO_USER);
+        }
+        return user;
     }
 
     @Override
@@ -89,14 +93,24 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
         }
     }
 
+    @Override
+    public void logout() {
+        try {
+            CookieUtils.deleteCookie(response, Constant.USER_INFO_COOKIE_KEY);
+        } catch (UnsupportedEncodingException e) {
+            log.error("注销异常{}", e);
+            throw new BusinessException(BaseResponseCode.SYSTEM_BUSY);
+        }
+    }
+
     private SysXUser newXuserByTel(String tel) {
         SysXUser entity = new SysXUser();
         entity.setCreateId("system");
         entity.setId(UUID.randomUUID().toString());
         entity.setSalt(UUID.randomUUID().toString());
         entity.setPhone(tel);
-        entity.setUsername("user"+tel);
-        entity.setNickName("USER"+tel);
+        entity.setUsername("user" + tel);
+        entity.setNickName("USER" + tel);
         entity.setHeadImg("https://img2.baidu.com/it/u=3890643864,1729804458&fm=26&fmt=auto&gp=0.jpg");
         return entity;
     }

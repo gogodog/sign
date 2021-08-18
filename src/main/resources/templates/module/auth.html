@@ -229,15 +229,16 @@
                         $("#rTelArea").append(opt)
                     }
                 }
+
                 function getVerityCode(formId) {
-                    let form = $('#'+formId);
+                    let form = $('#' + formId);
                     let tel = form.find("input[name='tel']").val() || '';
                     let area = $("input[name='telArea']").val() || '';
-                    if(!tel){
+                    if (!tel) {
                         return alert("请填写电话号码");
                     }
                     let data = {
-                        tel:tel
+                        tel: tel
                     };
                     let btn = form.find("button[name='reqCode']");
                     startJob(btn);
@@ -247,9 +248,9 @@
                         data: data,
                         success: function (res) {
                             alertResponse(res);
-                            if(res.code === 0){
+                            if (res.code === 0) {
                                 btn.html("验证码已发送");
-                            }else{
+                            } else {
                                 btn.html("请重新请求");
                             }
                         },
@@ -261,32 +262,35 @@
                         }
                     });
                 }
+
                 let scodeJob;
-                let startJob = function (btn){
+                let startJob = function (btn) {
                     let start = 0;
                     scodeJob = setInterval(function () {
-                        if(start >= 10){
+                        if (start >= 10) {
                             stopJob();
                             btn.html("请重新请求");
                             return;
                         }
-                        btn.html((start++)+"秒");
-                    },1000);
+                        btn.html((start++) + "秒");
+                    }, 1000);
                 }
-                let stopJob = function (){
+                let stopJob = function () {
                     console.log("========= clear job")
                     window.clearInterval(scodeJob);
                 }
+
                 function submitXForm(id) {
                     $("#" + id).ajaxSubmit(function (res) {
                         alertResponse(res);
                     });
                 }
-                window.onload = function(){
+
+                window.onload = function () {
                     init();
-                    let  needLogin = $('#needLogin').val() || "F";
+                    let needLogin = $('#needLogin').val() || "F";
                     console.log(needLogin + "  " + (needLogin == false));
-                    if(needLogin === "T"){
+                    if (needLogin === "T") {
                         $('#userInfoBtn').click();
                         $('#registerBtn').click();
                     }
@@ -310,7 +314,8 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="rTelArea" name="telArea" aria-label="Archive"></select>
+                                                    <select class="form-control" id="rTelArea" name="telArea"
+                                                            aria-label="Archive"></select>
                                                 </div>
                                             </div>
                                             <div class="col-8">
@@ -325,12 +330,16 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <button type="button" name="reqCode" class="form-label" style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;" onclick="getVerityCode('registerForm')">获取验证码</button>
+                                                    <button type="button" name="reqCode" class="form-label"
+                                                            style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;"
+                                                            onclick="getVerityCode('registerForm')">获取验证码
+                                                    </button>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <a class="btn-login" href="javascript:void(0);" onclick="submitXForm('registerForm')">注册</a>
+                                                    <a class="btn-login" href="javascript:void(0);"
+                                                       onclick="submitXForm('registerForm')">注册</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -364,12 +373,16 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <button type="button" name="reqCode" class="form-label" style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;" onclick="getVerityCode('loginForm')">获取验证码</button>
+                                                    <button type="button" name="reqCode" class="form-label"
+                                                            style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;"
+                                                            onclick="getVerityCode('loginForm')">获取验证码
+                                                    </button>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <a class="btn-login" href="javascript:void(0);" onclick="submitXForm('loginForm')">登录</a>
+                                                    <a class="btn-login" href="javascript:void(0);"
+                                                       onclick="submitXForm('loginForm')">登录</a>
                                                 </div>
                                             </div>
                                             <div class="col-12">

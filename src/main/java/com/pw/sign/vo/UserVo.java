@@ -15,7 +15,7 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-public class UserVo{
+public class UserVo {
 
     private String id;
 
@@ -39,7 +39,7 @@ public class UserVo{
 
     private String md5;
 
-    public UserVo(SysXUser user, String md5){
+    public UserVo(SysXUser user, String md5) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.address = user.getAddress();
@@ -53,7 +53,7 @@ public class UserVo{
         this.md5 = md5;
     }
 
-    public UserVo(SysXUser user){
+    public UserVo(SysXUser user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.address = user.getAddress();
