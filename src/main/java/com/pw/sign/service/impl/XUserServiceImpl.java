@@ -103,6 +103,11 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
         }
     }
 
+    @Override
+    public UserVo findByUserId(String id) {
+        return new UserVo(this.sysXUserMapper.selectById(id));
+    }
+
     private SysXUser newXuserByTel(String tel) {
         SysXUser entity = new SysXUser();
         entity.setCreateId("system");

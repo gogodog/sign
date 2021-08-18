@@ -22,4 +22,6 @@ public interface XUserService extends IService<SysXUser> {
     UserVo getUserFromCookie();
 
     void logout();
+
+    UserVo findByUserId(String id);
 }

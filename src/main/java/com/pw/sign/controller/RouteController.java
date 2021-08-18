@@ -59,9 +59,10 @@ public class RouteController {
     public String detailPage(@PathVariable(value = "id") Integer id, ModelMap model) {
         Idea idea = this.ideaService.getById(id);
         List<SignSign> signs = this.signService.listByIdeaId(id);
+        UserVo author = this.xuserService.findByUserId(idea.getCreator());
         model.put("idea", idea);
         model.put("signs", signs);
-        model.put("author", this.xuserService.getUserFromCookie());
+        model.put("author", author);
         return "detail";
     }
 
