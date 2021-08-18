@@ -69,10 +69,10 @@
                             <!--== Start Post Author Item ==-->
                             <div class="author-wrap">
                                 <div class="author-pic">
-                                    <a href="#/"><img src="/assets/img/blog/author1.jpg" alt="Image-HasTech"></a>
+                                    <a href="#/"><img th:src="${author.headImg}" alt="Image-HasTech"></a>
                                 </div>
                                 <div class="author-info">
-                                    <h5 class="title"><a href="javascript:return false;" th:text="${idea.creatorName}">张三</a>
+                                    <h5 class="title"><a href="javascript:return false;" th:text="${author.nickName}">张三</a>
                                     </h5>
                                     <p>风带走的不一定是远去的，远去的不一定是带走的</p>
                                     <a href="btn-link"><i class="lastudioicon-b-facebook"></i></a>
@@ -250,108 +250,20 @@
                             class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
                             class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
                             class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
-                            class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
                             class="signtag">李轻盈</a><a class="signtag">李盈</a><a class="signtag">李轻盈</a><a
                             class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
                             class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a
                             class="signtag">李轻盈</a><a class="signtag">李轻盈</a><a class="signtag">李轻盈</a>
                         <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.hwary.net%2Fuploads%2Fallimg%2F161103%2Fbd116456837.jpg&refer=http%3A%2F%2Fwww.hwary.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631783086&t=c0ff8501011a6e96fd2c4b1f84958c16">
                         <img src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img
-                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img
-                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img
-                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
                         <img src="http://www.kachayv.cn/1.png">
                         <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
                         <img src="http://www.kachayv.cn/1.png"><img
                             src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img
-                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="http://www.kachayv.cn/1.png"><img
-                            src="https://img0.baidu.com/it/u=3852286075,613469640&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=1030597663,1240477601&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img0.baidu.com/it/u=323719757,3799419196&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img1.baidu.com/it/u=2200648108,3190853512&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=317598663,342669230&fm=26&fmt=auto&gp=0.jpg">
-                        <img src="https://img2.baidu.com/it/u=170866627,1579426333&fm=26&fmt=auto&gp=0.jpg">
                         <img src="https://img2.baidu.com/it/u=3653609888,3416512063&fm=26&fmt=auto&gp=0.jpg">
                         <img src="http://www.kachayv.cn/1.png">
                     </div>
@@ -368,9 +280,7 @@
     <div th:replace="module/search :: search"></div>
 </div>
 <th:block th:include="module/footer-script"></th:block>
-<script src="/assets/js/jquery.form.js"></script>
 <script src="/assets/js/jSignature/JSignatureCoustomer.js"></script>
-<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script>
     function submitAjax(id) {
         $("#" + id).ajaxSubmit(function (response, status) {

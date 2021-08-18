@@ -5,10 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pw.sign.entity.Idea;
-import com.pw.sign.entity.SysUser;
 import com.pw.sign.mapper.IdeaMapper;
 import com.pw.sign.service.IdeaService;
+import com.pw.sign.service.XUserService;
 import com.pw.sign.vo.IdeaVoRequest;
+import com.pw.sign.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -28,12 +29,18 @@ public class IdeaServiceImpl extends ServiceImpl<IdeaMapper, Idea> implements Id
 
     @Resource
     private IdeaMapper ideaMapper;
+    @Resource
+    private XUserService xUserService;
 
 
     @Override
     public int newSave(IdeaVoRequest vo) {
         Idea idea = new Idea();
         idea.setIdea(JSONObject.toJSONString(vo));
+        UserVo user = xUserService.getUserFromCookie();
+        idea.setCreator(user.getId());
+        idea.setCreatorName(user.getNickName());
+        idea.setUpdater(user.getNickName());
         return this.ideaMapper.insert(idea);
     }
 

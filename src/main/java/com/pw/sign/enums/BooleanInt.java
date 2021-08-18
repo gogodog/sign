@@ -16,11 +16,13 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BooleanInt {
 
-    YES(0, "是", "有", "对", "已"),
-    NO(1, "否", "无", "错", "未");
+    YES(0, "T", "是", "有", "对", "已"),
+    NO(1, "F","否", "无", "错", "未");
 
     @Getter
     private final int code;
+    @Getter
+    private final String enCode;
 
     private final String tag1;
     private final String tag2;

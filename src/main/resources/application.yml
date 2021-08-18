@@ -31,3 +31,9 @@ mybatis-plus:
 #使用代码生成模块时 指定要生成的表存在于哪种数据库，可选值有【mysql、oracle、sqlServer】
 project:
   database: mysql
+sms:
+  aliyun:
+    key: LTAI4G3CQUDpFwpv3bky9a84
+    secret: a87ayTevdQtOOn5S1poOtBsBfktf84
+    endpoint: dysmsapi.aliyuncs.com
+    expire: 300

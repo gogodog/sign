@@ -3,8 +3,12 @@ package com.pw.sign.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.pw.sign.entity.Idea;
 import com.pw.sign.entity.SignSign;
+import com.pw.sign.enums.BooleanInt;
 import com.pw.sign.service.IdeaService;
 import com.pw.sign.service.SignService;
+import com.pw.sign.service.UserService;
+import com.pw.sign.service.XUserService;
+import com.pw.sign.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -33,9 +38,20 @@ public class RouteController {
     IdeaService ideaService;
     @Resource
     SignService signService;
+    @Resource
+    XUserService xuserService;
 
-    @GetMapping("/route/{id}")
-    public String routePage(@PathVariable(value = "id") String id) {
+    @GetMapping("/route/n/{id}")
+    public String routeNoLoginPage(@PathVariable(value = "id") String id) {
+        return id;
+    }
+
+    @GetMapping("/route/u/{id}")
+    public String routeLoginPage(@PathVariable(value = "id") String id, ModelMap model) {
+        UserVo user = this.xuserService.getUserFromCookie();
+        if(user == null){
+            return "redirect:/fast/index?nLogin="+BooleanInt.YES.getEnCode();
+        }
         return id;
     }
 
@@ -45,14 +61,16 @@ public class RouteController {
         List<SignSign> signs = this.signService.listByIdeaId(id);
         model.put("idea", idea);
         model.put("signs", signs);
+        model.put("author", this.xuserService.getUserFromCookie());
         return "detail";
     }
 
     @GetMapping("/index")
-    public String indexPage(ModelMap model) {
+    public String indexPage(ModelMap model, String nLogin) {
         List<Idea> ideas = this.ideaService.getList();
         log.info(JSONObject.toJSONString(ideas));
         model.addAttribute("list", ideas);
+        model.addAttribute("nLogin", nLogin);
         return "index";
     }
 

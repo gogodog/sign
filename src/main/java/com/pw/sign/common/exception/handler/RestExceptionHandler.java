@@ -4,9 +4,12 @@ import com.pw.sign.common.exception.BusinessException;
 import com.pw.sign.common.exception.code.BaseResponseCode;
 import com.pw.sign.common.utils.DataResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolation;
@@ -38,7 +41,7 @@ public class RestExceptionHandler {
      * 自定义全局异常处理
      */
     @ExceptionHandler(value = BusinessException.class)
-    DataResult businessExceptionHandler(BusinessException e) {
+    public DataResult businessExceptionHandler(BusinessException e) {
         log.error("Exception,exception:{}", e, e);
         return new DataResult(e.getMessageCode(), e.getDetailMessage());
     }
@@ -47,8 +50,15 @@ public class RestExceptionHandler {
      * 处理validation 框架异常
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    DataResult methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
+    public DataResult methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
         log.error("methodArgumentNotValidExceptionHandler bindingResult.allErrors():{},exception:{}", e.getBindingResult().getAllErrors(), e);
+        List<ObjectError> errors = e.getBindingResult().getAllErrors();
+        return DataResult.getResult(BaseResponseCode.METHOD_ARGUMENT_NOT_VALID_EXCEPTION.getCode(), errors.get(0).getDefaultMessage());
+    }
+
+    @ExceptionHandler(BindException.class)
+    public DataResult methodArgumentNotValidSpirngExceptionHandler(BindException e) {
+        log.error("methodArgumentNotValidSpirngExceptionHandler bindingResult.allErrors():{},exception:{}", e.getBindingResult().getAllErrors(), e);
         List<ObjectError> errors = e.getBindingResult().getAllErrors();
         return DataResult.getResult(BaseResponseCode.METHOD_ARGUMENT_NOT_VALID_EXCEPTION.getCode(), errors.get(0).getDefaultMessage());
     }

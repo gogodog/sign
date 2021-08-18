@@ -18,4 +18,14 @@ public class Constant {
      * 数据库类型
      */
     public static final String DB_TYPE_MYSQL = "mysql";
+
+    /**
+     * 用户cookie主键
+     */
+    public static final String USER_INFO_COOKIE_KEY = "D_MIND_SKY";
+
+    /**
+     * 用户cookie expire(second)
+     */
+    public static final int USER_INFO_COOKIE_EXPIRE = 60*60*24*7;
 }
