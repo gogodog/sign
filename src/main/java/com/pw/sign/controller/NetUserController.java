@@ -13,6 +13,7 @@ import com.pw.sign.service.XUserService;
 import com.pw.sign.vo.RegisterVo;
 import com.pw.sign.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,8 +58,8 @@ public class NetUserController {
         return DataResult.getResult(BaseResponseCode.VERITY_CODE_NOT_VALID_EXCEPTION);
     }
 
-    @PostMapping("/logout")
-    public DataResult logout(HttpServletResponse response) {
+    @GetMapping("/logout")
+    public DataResult logout() {
         xUserService.logout();
         return DataResult.success();
     }

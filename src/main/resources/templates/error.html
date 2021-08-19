@@ -33,7 +33,8 @@
 
     <footer th:replace="module/footer :: footer"></footer>
     <div th:replace="module/to-top :: to-top"></div>
-    <div th:replace="module/auth :: auth"></div>
+    <block th:include="module/auth :: auth"></block>
+    <script th:include="module/auth-script :: auth"></script>
     <aside th:replace="module/side-moible-menu :: side-menu"></aside>
     <!--    <div th:replace="module/side-menu :: side-menu"></div>-->
     <div th:replace="module/search :: search"></div>

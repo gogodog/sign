@@ -15,7 +15,8 @@
 
     <footer th:replace="module/footer :: footer"></footer>
     <div th:replace="module/to-top :: to-top"></div>
-    <div th:replace="module/auth :: auth"></div>
+    <div th:include="module/auth :: auth"></div>
+    <div th:include="module/auth-script :: auth"></div>
     <aside th:replace="module/side-moible-menu :: side-menu"></aside>
     <!--    <div th:replace="module/side-menu :: side-menu"></div>-->
     <div th:replace="module/search :: search"></div>

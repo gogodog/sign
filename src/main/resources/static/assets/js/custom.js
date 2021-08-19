@@ -38,8 +38,15 @@
     $(".aside-login-form-register-open").on('click', function () {
         AsideFormLoginWrap2.addClass('show');
     });
+    var LogoutWrap = $("#logout-model");
+    $("#logout-btn").on('click', function () {
+        LogoutWrap.addClass('show');
+    });
     $(".aside-login-form-close.aside-login-form-close-two").on('click', function () {
         AsideFormLoginWrap2.removeClass('show');
+    });
+    $("#logout-model-close").on('click', function () {
+        LogoutWrap.removeClass('show');
     });
 
     // Sticky Header Js

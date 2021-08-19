@@ -1,5 +1,7 @@
 package com.pw.sign.common.utils;
 
+import org.apache.commons.lang.StringUtils;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,10 @@ public class CookieUtils {
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals(cookieName)) {
+                    String val = cookie.getValue();
+                    if(StringUtils.isEmpty(val)){
+                        return null;
+                    }
                     return URLDecoder.decode(cookie.getValue(), UTF8);
                 }
             }
@@ -39,7 +45,7 @@ public class CookieUtils {
     }
 
     public static void deleteCookie(HttpServletResponse response, String cookieName) throws UnsupportedEncodingException {
-        setCookie(response, cookieName, null, 0);
+        setCookie(response, cookieName, "", 0);
     }
 
 }

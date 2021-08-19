@@ -1,6 +1,7 @@
 package com.pw.sign.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pw.sign.controller.helper.RouteControllerHelper;
 import com.pw.sign.entity.Idea;
 import com.pw.sign.entity.SignSign;
 import com.pw.sign.enums.BooleanInt;
@@ -70,6 +71,7 @@ public class RouteController {
     public String indexPage(ModelMap model, String nLogin) {
         List<Idea> ideas = this.ideaService.getList();
         log.info(JSONObject.toJSONString(ideas));
+        nLogin = RouteControllerHelper.needLoginHandler(xuserService, nLogin);
         model.addAttribute("list", ideas);
         model.addAttribute("nLogin", nLogin);
         return "index";

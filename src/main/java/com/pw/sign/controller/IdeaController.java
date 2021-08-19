@@ -4,11 +4,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.pw.sign.common.utils.DataResult;
 import com.pw.sign.entity.SysUser;
 import com.pw.sign.service.IdeaService;
+import com.pw.sign.service.XUserService;
 import com.pw.sign.vo.IdeaVoRequest;
+import com.pw.sign.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 /**
@@ -23,8 +26,10 @@ import javax.validation.Valid;
 @Slf4j
 public class IdeaController {
 
-    @Autowired
+    @Resource
     IdeaService ideaService;
+    @Resource
+    XUserService xuserService;
 
     @PostMapping("/save")
     public DataResult save(@Valid IdeaVoRequest vo) {

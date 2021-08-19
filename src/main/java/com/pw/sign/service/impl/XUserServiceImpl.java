@@ -15,6 +15,7 @@ import com.pw.sign.mapper.SysXUserMapper;
 import com.pw.sign.service.XUserService;
 import com.pw.sign.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -85,6 +86,9 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
     public UserVo getUserFromCookie() {
         try {
             String val = CookieUtils.getCookie(request, Constant.USER_INFO_COOKIE_KEY);
+            if(StringUtils.isEmpty(val)){
+                return null;
+            }
             return JSONObject.parseObject(val, UserVo.class);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
