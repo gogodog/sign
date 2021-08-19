@@ -22,7 +22,7 @@
                                th:text="${idea.ideaVo.desc}"></p>
                             <nav class="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                                 <ul class="breadcrumb">
-                                    <li><a href="index.html" th:text="${idea.creatorName}">张三</a></li>
+                                    <li><a href="index.html" th:text="${idea.creatorName}"></a></li>
                                     <li class="breadcrumb-sep"> |</li>
                                     <li><a href="javascript:return false;"
                                            th:text="${#dates.format(idea.createTime, 'yyyy-MM-dd')}"></a></li>
@@ -72,11 +72,11 @@
                             <!--== Start Post Author Item ==-->
                             <div class="author-wrap">
                                 <div class="author-pic">
-                                    <a href="#/"><img th:src="${author.headImg}" alt="Image-HasTech"></a>
+                                    <a href="#/"><img th:src="${author.headImg}" alt="Image-HasTech" style="max-width: 100px;"></a>
                                 </div>
                                 <div class="author-info">
                                     <h5 class="title"><a href="javascript:return false;"
-                                                         th:text="${author.nickName}">张三</a>
+                                                         th:text="${author.nickName}"></a>
                                     </h5>
                                     <p>风带走的不一定是远去的，远去的不一定是带走的</p>
                                     <a href="btn-link"><i class="lastudioicon-b-facebook"></i></a>
