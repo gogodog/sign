@@ -75,7 +75,7 @@
                                 <!--== End Contact Form ==-->
 
                                 <ul class="contact-info-list">
-                                    <li><span>时间:</span>2021-01-01 01:00:00</li>
+                                    <li><span>时间:</span><span id="showtime"></span></li>
                                 </ul>
 
                                 <!--== Message Notification ==-->
@@ -158,6 +158,24 @@
             cnName: cnName
         });
         $(that).addClass("checked");
+    }
+
+    $(function () {
+        setInterval(function () {
+            let c = getCurrentDate(new Date());
+            $('#showtime').html(c);
+        }, 1000);
+    });
+
+    function getCurrentDate(date) {
+        let y = date.getFullYear();
+        let m = date.getMonth() + 1;
+        let d = date.getDate();
+        let h = date.getHours();
+        let min = date.getMinutes();
+        let s = date.getSeconds();
+        let str = y + '年' + (m < 10 ? ('0' + m) : m) + '月' + (d < 10 ? ('0' + d) : d) + '日  ' + (h < 10 ? ('0' + h) : h) + ':' + (min < 10 ? ('0' + min) : min) + ':' + (s < 10 ? ('0' + s) : s);
+        return str;
     }
 
 </script>
