@@ -35,8 +35,8 @@ public class BusinessDataConfig {
     public void loadSignIdeaTag() {
         log.info("----------------------加载标签类 开始---------------------");
         ideaTags = this.ideaTagService.list();
-        ideaTags.sort((o1, o2)->o1.getOrders().compareTo(o2.getOrders()));
-        ideaTagsGroup = ideaTags.stream().collect(Collectors.groupingBy(d -> d.getParentId() ));
+        ideaTags.sort((o1, o2) -> o1.getOrders().compareTo(o2.getOrders()));
+        ideaTagsGroup = ideaTags.stream().collect(Collectors.groupingBy(d -> d.getParentId()));
         log.info("----------------------加载标签类 结束---------------------");
     }
 }

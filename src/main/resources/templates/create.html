@@ -47,17 +47,26 @@
                                             <div class="col-12">
                                                 <p onclick="getTagFrame()">添加标签 &nbsp;&nbsp;>></p>
                                                 <div id="tag-frame" style="display: none">
-                                                <div class="cus-tags row" style="text-align: center;" th:each="group:${tags}">
-                                                    <th:block  th:each="i,s:${group.value}">
-                                                        <div th:if="${s.first}" class="post-loadmore col-12" style="margin: 20px 0px;"><a href="javascript:; th:attr="cnName=${i.cnName}, tagParentId=${i.parentId}, tagId=${i.id}""><span th:text="${i.cnName}"></span></a></div>
-                                                        <div th:if="${!s.first}" class="col-2 col-2-bak"><a onclick="chooseTag(this)" href="javascript:void(0);" th:attr="cnName=${i.cnName}, tagParentId=${i.parentId}, tagId=${i.id}"><span th:text="${i.cnName}"></span></a></div>
-                                                    </th:block>
-                                                </div>
+                                                    <div class="cus-tags row" style="text-align: center;"
+                                                         th:each="group:${tags}">
+                                                        <th:block th:each="i,s:${group.value}">
+                                                            <div th:if="${s.first}" class="post-loadmore col-12"
+                                                                 style="margin: 20px 0px;"><a
+                                                                    href="javascript:; th:attr=" cnName=${i.cnName},
+                                                                    tagParentId=${i.parentId}, tagId=${i.id}""><span
+                                                                    th:text="${i.cnName}"></span></a></div>
+                                                            <div th:if="${!s.first}" class="col-2 col-2-bak"><a
+                                                                    onclick="chooseTag(this)" href="javascript:void(0);"
+                                                                    th:attr="cnName=${i.cnName}, tagParentId=${i.parentId}, tagId=${i.id}"><span
+                                                                    th:text="${i.cnName}"></span></a></div>
+                                                        </th:block>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group mb--0">
-                                                    <button class="btn-theme" type="button" onclick="submitAjax()">提交</button>
+                                                    <button class="btn-theme" type="button" onclick="submitAjax()">提交
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,7 +101,7 @@
     function submitAjax() {
         let form = new FormData(document.getElementById("save-idea"));
         setStep(form, "step");
-        if(!choosedTags || choosedTags.length === 0){
+        if (!choosedTags || choosedTags.length === 0) {
             return alert("请选择标签")
         }
         setTag(form, "tag");
@@ -125,28 +134,28 @@
         }
     }
 
-    function getTagFrame(){
+    function getTagFrame() {
         $("#tag-frame").toggle(900)
     }
 
     let choosedTags = [];
 
-    function chooseTag(that){
+    function chooseTag(that) {
         let id = $(that).attr('tagid');
-        let cnName  = $(that).attr('cnname');
-        for(let i = 0 ; i<choosedTags.length ; i++){
-            if(choosedTags[i].id === id){
-                choosedTags.splice(i,1)
+        let cnName = $(that).attr('cnname');
+        for (let i = 0; i < choosedTags.length; i++) {
+            if (choosedTags[i].id === id) {
+                choosedTags.splice(i, 1)
                 $(that).removeClass("checked");
                 return;
             }
         }
-        if(choosedTags.length >=  5){
+        if (choosedTags.length >= 5) {
             return alert("最多只能选择5个标签");
         }
-        choosedTags.push( {
-            id : id,
-            cnName : cnName
+        choosedTags.push({
+            id: id,
+            cnName: cnName
         });
         $(that).addClass("checked");
     }

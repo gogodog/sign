@@ -52,7 +52,7 @@ public class LoginUserAspect {
     @Around("POINTCUT()")
     public Object doAround(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
-        for (int i = 0 ; i<args.length ; i++) {
+        for (int i = 0; i < args.length; i++) {
             Object obj = args[i];
             if (obj instanceof UserVo) {
                 args[i] = this.xUserService.getUserFromCookie();

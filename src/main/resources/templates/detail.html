@@ -62,7 +62,8 @@
                                 </div>
                                 <div class="tag-conent">
                                     <span>标签:</span>
-                                    <th:block th:if="${not #lists.isEmpty(idea.ideaVo.tags)}" th:each="i,s:${idea.ideaVo.tags}">
+                                    <th:block th:if="${not #lists.isEmpty(idea.ideaVo.tags)}"
+                                              th:each="i,s:${idea.ideaVo.tags}">
                                         <a href="javaScript:void(0);" th:text="${i.cnName}">Mobile</a>
                                         <span th:if="${not s.last}">,</span>
                                     </th:block>

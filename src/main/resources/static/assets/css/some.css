@@ -111,7 +111,7 @@
     content: "" !important;
 }
 
-.cus-tags .col-2 a{
+.cus-tags .col-2 a {
     border: 1px solid #ebebeb;
     color: #181818;
     display: inline-block;
@@ -129,7 +129,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.post-loadmore a{
+
+.post-loadmore a {
     background-color: #fff;
     color: #181818;
 }
@@ -138,7 +139,7 @@
     width: 20%;
 }
 
-.cus-tags .col-2 .checked{
+.cus-tags .col-2 .checked {
     background-color: #ff663b;
     color: #fff;
 }
