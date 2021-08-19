@@ -86,7 +86,7 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
     public UserVo getUserFromCookie() {
         try {
             String val = CookieUtils.getCookie(request, Constant.USER_INFO_COOKIE_KEY);
-            if(StringUtils.isEmpty(val)){
+            if (StringUtils.isEmpty(val)) {
                 return null;
             }
             return JSONObject.parseObject(val, UserVo.class);

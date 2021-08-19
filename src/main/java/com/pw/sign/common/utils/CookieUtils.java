@@ -20,7 +20,7 @@ public class CookieUtils {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals(cookieName)) {
                     String val = cookie.getValue();
-                    if(StringUtils.isEmpty(val)){
+                    if (StringUtils.isEmpty(val)) {
                         return null;
                     }
                     return URLDecoder.decode(cookie.getValue(), UTF8);
