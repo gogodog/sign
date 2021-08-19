@@ -20,13 +20,16 @@
         </div>
         <div class="aside-login-form-wrap aside-login-form-wrap-two">
             <div class="aside-login-form-inner">
-                <div class="aside-login-form-close aside-login-form-close-two"><i class="lastudioicon-e-remove"></i></div>
+                <div class="aside-login-form-close aside-login-form-close-two"><i class="lastudioicon-e-remove"></i>
+                </div>
                 <div class="aside-login-form-content">
                     <div class="accordion" id="auth-dig">
 
                         <div class="accordion-item login-form mb-30">
                             <h2 class="accordion-header" id="loginHead">
-                                <button id="login-btn-form" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#loginContent" aria-expanded="false" aria-controls="loginContent">
+                                <button id="login-btn-form" class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#loginContent" aria-expanded="false"
+                                        aria-controls="loginContent">
                                     登录
                                 </button>
                             </h2>
@@ -38,26 +41,33 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <input class="form-control" name="tel" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="11" placeholder="请输入电话号码">
+                                                        <input class="form-control" name="tel"
+                                                               oninput="value=value.replace(/[^\d]/g,'')" maxlength="11"
+                                                               placeholder="请输入电话号码">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <input class="form-control" name="verityCode" oninput = "codeCheck(this, 'loginForm')" maxlength="4" placeholder="请输入验证码">
+                                                        <input class="form-control" name="verityCode"
+                                                               oninput="codeCheck(this, 'loginForm')" maxlength="4"
+                                                               placeholder="请输入验证码">
                                                     </div>
                                                 </div>
-<!--                                                <div class="col-4">-->
-<!--                                                    <div class="form-group">-->
-<!--                                                        <button type="button" name="reqCode" class="form-label"-->
-<!--                                                                style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;"-->
-<!--                                                                onclick="getVerityCode('loginForm')">获取验证码-->
-<!--                                                        </button>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <!--                                                <div class="col-4">-->
+                                                <!--                                                    <div class="form-group">-->
+                                                <!--                                                        <button type="button" name="reqCode" class="form-label"-->
+                                                <!--                                                                style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;"-->
+                                                <!--                                                                onclick="getVerityCode('loginForm')">获取验证码-->
+                                                <!--                                                        </button>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
                                                 <div class="col-12">
                                                     <div class="form-group ">
-                                                        <a class="btn-login" cname="reqCode" href="javascript:void(0);" onclick="getVerityCode('loginForm')">获取验证嘛</a>
-                                                        <a class="btn-login" cname="logCode" style="display: none" href="javascript:void(0);" onclick="submitXForm('loginForm')">请登录</a>
+                                                        <a class="btn-login" cname="reqCode" href="javascript:void(0);"
+                                                           onclick="getVerityCode('loginForm')">获取验证嘛</a>
+                                                        <a class="btn-login" cname="logCode" style="display: none"
+                                                           href="javascript:void(0);"
+                                                           onclick="submitXForm('loginForm')">请登录</a>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -73,7 +83,10 @@
                         </div>
                         <div class="accordion-item login-form mb--0">
                             <h2 class="accordion-header" id="registerHead">
-                                <button class="accordion-button collapsed register-head" type="button" data-bs-toggle="collapse" data-bs-target="#registerContent" aria-expanded="false" aria-controls="registerContent">注册</button>
+                                <button class="accordion-button collapsed register-head" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#registerContent"
+                                        aria-expanded="false" aria-controls="registerContent">注册
+                                </button>
                             </h2>
                             <div id="registerContent" class="accordion-collapse collapse" aria-labelledby="registerHead"
                                  data-bs-parent="#auth-dig">
@@ -90,24 +103,31 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <input class="form-control" name="tel" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="11" placeholder="请输入电话号码">
+                                                        <input class="form-control" name="tel"
+                                                               oninput="value=value.replace(/[^\d]/g,'')" maxlength="11"
+                                                               placeholder="请输入电话号码">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <input class="form-control" name="verityCode" oninput = "codeCheck(this, 'registerForm')" maxlength="4" placeholder="请输入验证码">
+                                                        <input class="form-control" name="verityCode"
+                                                               oninput="codeCheck(this, 'registerForm')" maxlength="4"
+                                                               placeholder="请输入验证码">
                                                     </div>
                                                 </div>
-<!--                                                <div class="col-4">-->
-<!--                                                    <div class="form-group">-->
-<!--                                                        <button type="button" name="reqCode" class="form-label" style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;" onclick="getVerityCode('registerForm')">获取验证码-->
-<!--                                                        </button>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <!--                                                <div class="col-4">-->
+                                                <!--                                                    <div class="form-group">-->
+                                                <!--                                                        <button type="button" name="reqCode" class="form-label" style="border: 2px solid;height: 60px;width: 100%;font-size: 14px;" onclick="getVerityCode('registerForm')">获取验证码-->
+                                                <!--                                                        </button>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
                                                 <div class="col-12  text-center">
                                                     <div class="form-group">
-                                                        <a class="btn-login" cname="reqCode" href="javascript:void(0);" onclick="getVerityCode('registerForm')">获取验证码</a>
-                                                        <a class="btn-login" cname="logCode" style="display: none" href="javascript:void(0);" onclick="submitXForm('registerForm')">请点击注册</a>
+                                                        <a class="btn-login" cname="reqCode" href="javascript:void(0);"
+                                                           onclick="getVerityCode('registerForm')">获取验证码</a>
+                                                        <a class="btn-login" cname="logCode" style="display: none"
+                                                           href="javascript:void(0);"
+                                                           onclick="submitXForm('registerForm')">请点击注册</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -116,10 +136,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>

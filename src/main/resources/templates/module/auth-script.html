@@ -225,26 +225,26 @@
 
     let AUTH_FLAG = {}
 
-    function findBtn (formId){
+    function findBtn(formId) {
         return $('#' + formId).find("a[cname='reqCode']");
     }
 
-    function openBtnForm(formId, index){
-        if(index === 1){
+    function openBtnForm(formId, index) {
+        if (index === 1) {
             $('#' + formId).find("a[cname='reqCode']").hide();
             $('#' + formId).find("a[cname='logCode']").show();
-        }else {
+        } else {
             $('#' + formId).find("a[cname='reqCode']").show();
             $('#' + formId).find("a[cname='logCode']").hide();
         }
 
     }
 
-    function codeCheck(that, formId){
-        let val = $(that).val().replace(/[^\d]/g,'');
+    function codeCheck(that, formId) {
+        let val = $(that).val().replace(/[^\d]/g, '');
         $(that).val(val);
         let flag = AUTH_FLAG[formId] || false;
-        if(flag) {
+        if (flag) {
             if (val && val.length === 4) {
                 $(that).attr("disabled", true);
                 let form = $('#' + formId);

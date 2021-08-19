@@ -64,7 +64,7 @@ public class NetUserController {
 
     @PostMapping("/getCode")
     public DataResult getCode(String tel, String area) {
-        if(!Regexp.isMobile(tel+"")){
+        if (!Regexp.isMobile(tel + "")) {
             return DataResult.getResult(BaseResponseCode.TEL_FORMAT_ERROR);
         }
         boolean isSend = this.smsService.sendAuthCodeByAliYun(tel);

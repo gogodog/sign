@@ -62,7 +62,7 @@ public class ParseIdeaTag {
         List<String> in = new ArrayList<>();
         for (int i = 0; i < lines.size(); i++) {
             String e = lines.get(i);
-            if (i == lines.size() -1 || StringUtils.isEmpty(e)) {
+            if (i == lines.size() - 1 || StringUtils.isEmpty(e)) {
                 cats.add(in);
                 in = new ArrayList<>();
                 continue;
