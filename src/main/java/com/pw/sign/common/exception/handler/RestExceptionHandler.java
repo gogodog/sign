@@ -4,6 +4,7 @@ import com.pw.sign.common.exception.BusinessException;
 import com.pw.sign.common.exception.code.BaseResponseCode;
 import com.pw.sign.common.utils.DataResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -32,9 +35,16 @@ public class RestExceptionHandler {
      * 系统繁忙，请稍候再试"
      */
     @ExceptionHandler(Exception.class)
-    public DataResult handleException(Exception e) {
+    public Object handleException(Exception e) {
         log.error("Exception,exception:{}", e, e);
         return DataResult.getResult(BaseResponseCode.SYSTEM_BUSY);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public Object handleNoPageException(MethodArgumentTypeMismatchException e) {
+        log.error("Exception,exception:{}", e, e);
+        ModelAndView modelAndView = new ModelAndView("/fast/route/n/error");
+        return modelAndView;
     }
 
     /**
