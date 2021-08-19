@@ -72,11 +72,13 @@
                             <!--== Start Post Author Item ==-->
                             <div class="author-wrap">
                                 <div class="author-pic">
-                                    <a href="#/"><img th:src="${author.headImg}" alt="Image-HasTech" style="max-width: 100px;"></a>
+                                    <a href="#/"><img
+                                            th:src="${author == null || author.headImg == null? 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2F50%2Fv2-0e817799032e13d235e683da587fb5d1_hd.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631993468&t=ceef006054dd6b737f90382b839c35f9' : author.headImg}"
+                                            alt="Image-HasTech" style="max-width: 100px;"></a>
                                 </div>
                                 <div class="author-info">
                                     <h5 class="title"><a href="javascript:return false;"
-                                                         th:text="${author.nickName}"></a>
+                                                         th:text="${author == null || author.nickName == null ?'那客来' : author.nickName}"></a>
                                     </h5>
                                     <p>风带走的不一定是远去的，远去的不一定是带走的</p>
                                     <a href="btn-link"><i class="lastudioicon-b-facebook"></i></a>

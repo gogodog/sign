@@ -110,6 +110,13 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
 
     @Override
     public UserVo findByUserId(String id) {
+        if (StringUtils.isEmpty(id)) {
+            return null;
+        }
+        SysXUser user = this.sysXUserMapper.selectById(id);
+        if (user == null) {
+            return null;
+        }
         return new UserVo(this.sysXUserMapper.selectById(id));
     }
 

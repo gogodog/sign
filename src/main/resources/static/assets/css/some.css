@@ -137,6 +137,10 @@
 
 .post-loadmore a {
     width: 20%;
+    min-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .cus-tags .col-2 .checked {
