@@ -3,6 +3,7 @@ package com.pw.sign.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.pw.sign.common.aop.annotation.LogAnnotation;
 import com.pw.sign.common.aop.annotation.NeedLogin;
+import com.pw.sign.common.load.BusinessDataConfig;
 import com.pw.sign.controller.helper.RouteControllerHelper;
 import com.pw.sign.entity.Idea;
 import com.pw.sign.entity.SignSign;
@@ -61,6 +62,7 @@ public class RouteController {
     @GetMapping("/create")
     @NeedLogin
     public String createPage(UserVo userVo, ModelMap model) {
+        model.put("tags", BusinessDataConfig.ideaTagsGroup);
         return "create";
     }
 

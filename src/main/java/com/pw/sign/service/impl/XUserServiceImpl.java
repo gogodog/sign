@@ -55,6 +55,7 @@ public class XUserServiceImpl extends ServiceImpl<SysXUserMapper, SysXUser> impl
         entity.setId(UUID.randomUUID().toString());
         entity.setPhone(tel);
         entity.setUsername("user" + tel);
+        entity.setNickName("ncn" + tel);
         int i = sysXUserMapper.insert(entity);
         if (i != 1) {
             throw new BusinessException(BaseResponseCode.NEW_USER_ERRO);

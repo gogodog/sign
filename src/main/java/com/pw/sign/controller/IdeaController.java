@@ -1,6 +1,7 @@
 package com.pw.sign.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pw.sign.common.aop.annotation.NeedLogin;
 import com.pw.sign.common.utils.DataResult;
 import com.pw.sign.entity.SysUser;
 import com.pw.sign.service.IdeaService;
@@ -32,8 +33,9 @@ public class IdeaController {
     XUserService xuserService;
 
     @PostMapping("/save")
-    public DataResult save(@Valid IdeaVoRequest vo) {
-        int i = ideaService.newSave(vo);
+    @NeedLogin
+    public DataResult save(@Valid IdeaVoRequest vo, UserVo user) {
+        int i = ideaService.newSave(vo, user);
         log.info(JSONObject.toJSONString(vo));
         return DataResult.success();
     }

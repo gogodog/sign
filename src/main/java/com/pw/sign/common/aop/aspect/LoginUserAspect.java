@@ -52,10 +52,11 @@ public class LoginUserAspect {
     @Around("POINTCUT()")
     public Object doAround(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
-        for (Object obj : args) {
+        for (int i = 0 ; i<args.length ; i++) {
+            Object obj = args[i];
             if (obj instanceof UserVo) {
-                obj = this.xUserService.getUserFromCookie();
-                if (obj == null && method(point).isAnnotationPresent(NeedLogin.class)) {
+                args[i] = this.xUserService.getUserFromCookie();
+                if (args[i] == null && method(point).isAnnotationPresent(NeedLogin.class)) {
                     return "redirect:/fast/index?nLogin=" + BooleanInt.YES.getEnCode();
                 }
                 break;

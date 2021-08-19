@@ -110,3 +110,42 @@
 .register-head:before {
     content: "" !important;
 }
+
+.cus-tags a{
+    border: 1px solid #ebebeb;
+    color: #181818;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    padding: 10px 22px 9px;
+    border-radius: 0;
+    min-width: 100px;
+    margin-right: 4px;
+    width: 30%;
+    max-width: 140px;
+    text-align: center;
+}
+
+.cus-tags .checked{
+    background-color: #ff663b;
+    color: #fff;
+}
+
+@media (max-width: 640px) {
+    .col-2-bak {
+        flex: 0 0 auto;
+        width: 25%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .col-2-bak {
+        flex: 0 0 auto;
+        width: 33%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

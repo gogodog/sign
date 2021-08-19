@@ -19,9 +19,9 @@ public class SignIdeaTag extends BaseEntity implements Serializable {
 
     private String enName;
 
+    @TableLogic
     private Integer deleted;
 
-    @TableLogic
     private String status;
 
     private String note;
@@ -36,7 +36,9 @@ public class SignIdeaTag extends BaseEntity implements Serializable {
 
     private String updater;
 
-    public SignIdeaTag(String id, String parentId, String cnName, String enName, Integer deleted, String status, String note, Date createTime, String creator, Date updateTime, String updater) {
+    private Integer orders;
+
+    public SignIdeaTag(String id, String parentId, String cnName, String enName, Integer deleted, String status, String note, Date createTime, String creator, Date updateTime, String updater, Integer orders) {
         this.id = id;
         this.parentId = parentId;
         this.cnName = cnName;
@@ -48,6 +50,7 @@ public class SignIdeaTag extends BaseEntity implements Serializable {
         this.creator = creator;
         this.updateTime = updateTime;
         this.updater = updater;
+        this.orders = orders;
     }
 
     public SignIdeaTag() {
@@ -140,5 +143,13 @@ public class SignIdeaTag extends BaseEntity implements Serializable {
 
     public void setUpdater(String updater) {
         this.updater = updater == null ? null : updater.trim();
+    }
+
+    public Integer getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Integer orders) {
+        this.orders = orders;
     }
 }

@@ -29,18 +29,15 @@ public class IdeaServiceImpl extends ServiceImpl<IdeaMapper, Idea> implements Id
 
     @Resource
     private IdeaMapper ideaMapper;
-    @Resource
-    private XUserService xUserService;
 
 
     @Override
-    public int newSave(IdeaVoRequest vo) {
+    public int newSave(IdeaVoRequest vo, UserVo user) {
         Idea idea = new Idea();
         idea.setIdea(JSONObject.toJSONString(vo));
-        UserVo user = xUserService.getUserFromCookie();
         idea.setCreator(user.getId());
         idea.setCreatorName(user.getNickName());
-        idea.setUpdater(user.getNickName());
+        idea.setUpdater(user.getId());
         return this.ideaMapper.insert(idea);
     }
 
