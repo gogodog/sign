@@ -21,7 +21,8 @@ public enum BaseResponseCode implements ResponseCodeInterface {
     NEW_USER_ERRO(402002, "新建用户异常"),
     NO_USER(402003, "用户不存在"),
     EXISTED_USER(402004, "用户已存在"),
-    NO_LOGIN(402005, "用户未登录");
+    NO_LOGIN(402005, "用户未登录"),
+    TEL_FORMAT_ERROR(402006, "电话号码格式错误");
 
     /**
      * 错误码

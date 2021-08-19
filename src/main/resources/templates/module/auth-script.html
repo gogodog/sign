@@ -223,6 +223,60 @@
         }
     }
 
+    let AUTH_FLAG = {}
+
+    function findBtn (formId){
+        return $('#' + formId).find("a[cname='reqCode']");
+    }
+
+    function openBtnForm(formId, index){
+        if(index === 1){
+            $('#' + formId).find("a[cname='reqCode']").hide();
+            $('#' + formId).find("a[cname='logCode']").show();
+        }else {
+            $('#' + formId).find("a[cname='reqCode']").show();
+            $('#' + formId).find("a[cname='logCode']").hide();
+        }
+
+    }
+
+    function codeCheck(that, formId){
+        let val = $(that).val().replace(/[^\d]/g,'');
+        $(that).val(val);
+        let flag = AUTH_FLAG[formId] || false;
+        if(flag) {
+            if (val && val.length === 4) {
+                $(that).attr("disabled", true);
+                let form = $('#' + formId);
+                let code = form.find("input[name='verityCode']").val() || '';
+                let tel = form.find("input[name='tel']").val() || '';
+                let data = {
+                    tel: tel,
+                    verityCode: code
+                };
+                $.ajax({
+                    url: "/api/nuser/checkCode",
+                    type: "post",
+                    data: data,
+                    success: function (res) {
+                        alertResponse(res);
+                        if (res.code === 0) {
+                            openBtnForm(formId, 1)
+                        }
+                    },
+                    error: function (e) {
+                        alertError();
+                    },
+                    complete: function () {
+                        $(that).attr("disabled", false);
+                    }
+                });
+            } else {
+                findBtn(formId).html("已发送，请填写验证码");
+            }
+        }
+    }
+
     function getVerityCode(formId) {
         let form = $('#' + formId);
         let tel = form.find("input[name='tel']").val() || '';
@@ -233,7 +287,7 @@
         let data = {
             tel: tel
         };
-        let btn = form.find("button[name='reqCode']");
+        let btn = findBtn(formId);
         startJob(btn);
         $.ajax({
             url: "/api/nuser/getCode",
@@ -241,10 +295,13 @@
             data: data,
             success: function (res) {
                 alertResponse(res);
+                stopJob();
                 if (res.code === 0) {
-                    btn.html("验证码已发送");
+                    btn.html("已发送，请填写验证码");
+                    AUTH_FLAG[formId] = true;
                 } else {
                     btn.html("请重新请求");
+                    AUTH_FLAG[formId] = false;
                 }
             },
             error: function (e) {
@@ -258,6 +315,7 @@
 
     let scodeJob;
     let startJob = function (btn) {
+        stopJob();
         let start = 0;
         scodeJob = setInterval(function () {
             if (start >= 10) {
@@ -323,7 +381,7 @@
         console.log(needLogin + "  " + (needLogin == false));
         if (needLogin === "T") {
             $('#login-btn').click();
-            $('#registerBtn').click();
+            $('#login-btn-form').click();
         }
         initUserOption();
     }

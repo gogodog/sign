@@ -1,6 +1,8 @@
 package com.pw.sign.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pw.sign.common.aop.annotation.LogAnnotation;
+import com.pw.sign.common.aop.annotation.NeedLogin;
 import com.pw.sign.controller.helper.RouteControllerHelper;
 import com.pw.sign.entity.Idea;
 import com.pw.sign.entity.SignSign;
@@ -56,7 +58,14 @@ public class RouteController {
         return id;
     }
 
+    @GetMapping("/create")
+    @NeedLogin
+    public String createPage(UserVo userVo, ModelMap model) {
+        return "create";
+    }
+
     @GetMapping("/detail/{id}")
+    @LogAnnotation
     public String detailPage(@PathVariable(value = "id") Integer id, ModelMap model) {
         Idea idea = this.ideaService.getById(id);
         List<SignSign> signs = this.signService.listByIdeaId(id);

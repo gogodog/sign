@@ -1,5 +1,7 @@
 package com.pw.sign.common.utils;
 
+import java.util.regex.Pattern;
+
 /**
  * Constant
  *
@@ -28,4 +30,5 @@ public class Constant {
      * 用户cookie expire(second)
      */
     public static final int USER_INFO_COOKIE_EXPIRE = 60 * 60 * 24 * 7;
+
 }

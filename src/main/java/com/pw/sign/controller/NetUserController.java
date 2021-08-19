@@ -2,10 +2,7 @@ package com.pw.sign.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.pw.sign.common.exception.code.BaseResponseCode;
-import com.pw.sign.common.utils.Constant;
-import com.pw.sign.common.utils.CookieUtils;
-import com.pw.sign.common.utils.DataResult;
-import com.pw.sign.common.utils.Secret;
+import com.pw.sign.common.utils.*;
 import com.pw.sign.controller.helper.NetUserControllerHelper;
 import com.pw.sign.entity.SysXUser;
 import com.pw.sign.service.SmsService;
@@ -21,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import java.io.UnsupportedEncodingException;
 
 @RestController
@@ -66,10 +64,22 @@ public class NetUserController {
 
     @PostMapping("/getCode")
     public DataResult getCode(String tel, String area) {
+        if(!Regexp.isMobile(tel+"")){
+            return DataResult.getResult(BaseResponseCode.TEL_FORMAT_ERROR);
+        }
         boolean isSend = this.smsService.sendAuthCodeByAliYun(tel);
         if (isSend) {
             return DataResult.success();
         }
         return DataResult.getResult(BaseResponseCode.SYSTEM_BUSY);
+    }
+
+    @PostMapping("/checkCode")
+    public DataResult checkCode(@Valid RegisterVo vo) {
+        boolean yes = this.smsService.checkAuthCodeByAliYun(vo.getTel(), vo.getVerityCode());
+        if (yes) {
+            return DataResult.success();
+        }
+        return DataResult.getResult(BaseResponseCode.VERITY_CODE_NOT_VALID_EXCEPTION);
     }
 }
