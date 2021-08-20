@@ -3,6 +3,7 @@ package com.pw.sign.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.pw.sign.entity.Idea;
 import com.pw.sign.vo.IdeaVoRequest;
+import com.pw.sign.vo.SearchRequest;
 import com.pw.sign.vo.UserVo;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface IdeaService extends IService<Idea> {
     int newSave(IdeaVoRequest vo, UserVo user);
 
     List<Idea> getList();
+
+    List<Idea> searchPage(SearchRequest searchRequest);
 }

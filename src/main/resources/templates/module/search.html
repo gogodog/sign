@@ -5,10 +5,11 @@
     <div class="search-box-wrapper" th:fragment="search">
         <div class="search-box-content-inner">
             <div class="search-box-form-wrap">
-                <form action="#" method="post">
+                <form action="/fast/list" method="post">
                     <div class="search-form position-relative">
                         <label for="search-input" class="sr-only">查询</label>
-                        <input type="search" class="form-control" placeholder="输入关键字" id="search-input">
+                        <input type="search" name="searchKey" class="form-control" placeholder="输入关键字" maxlength="50"
+                               id="search-input">
                         <button class="search-button"><i class="lastudioicon-zoom-1"></i></button>
                     </div>
                 </form>
