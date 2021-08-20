@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.blog-area.blog-inner-area.blog-sidebar-area .post-items-style2 .post-item .inner-content.post-inner-style3 .sm-padding-content {
+    padding: 35px 30px 38px;
+}
+
+.post-items-style2 .post-item .inner-content-small {
+    border-bottom: 1px solid #f0f2f7;
+    margin-bottom: 0;
+    -webkit-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+}
+
+@media (max-width: 500px) {
+    .blog-area.blog-inner-area.blog-sidebar-area .post-items-style2 .post-item .inner-content.post-inner-style3 .sm-padding-content {
+        padding: 15px 15px 15px;
+    }
+}

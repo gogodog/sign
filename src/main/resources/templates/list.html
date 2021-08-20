@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:include="module/head :: head"></head>
+    <link href="/assets/css/list.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="wrapper coming-soon-page-wrapper">
+    <div th:replace="module/preloader :: preloader"></div>
+    <header th:replace="module/header :: header"></header>
+
+    <main class="main-content">
+        <!--== Start Section Area Wrapper ==-->
+
+
+        <section class="blog-area blog-inner-area blog-sidebar-area" style="padding-top: 10px;">
+            <div class="container" style="padding-top: 0px;">
+                <div class="row no-gutter">
+                    <div class="col-lg-8">
+                        <div class="row post-items-style2 no-gutter post-right-margin" id="list-content"></div>
+                    </div>
+                    <div class="col-lg-4">
+                        <!--== Start Sidebar Wrapper ==-->
+                        <div class="sidebar-wrapper post-left-margin">
+                            <!--== Start Sidebar Item ==-->
+                            <div class="sidebar-item">
+                                <h4 class="sidebar-title">热榜</h4>
+                                <div class="sidebar-body">
+                                    <div class="category-sub-menu">
+                                        <ul>
+                                            <li><a href="#/">Architecture</a><span>(3)</span></li>
+                                            <li><a href="#/">Beauty</a><span>(8)</span></li>
+                                            <li><a href="#/">Business</a><span>(8)</span></li>
+                                            <li><a href="#/">Construction</a><span>(3)</span></li>
+                                            <li><a href="#/">Design</a><span>(6)</span></li>
+                                            <li><a href="#/">Fashion</a><span>(4)</span></li>
+                                            <li><a href="#/">Food</a><span>(2)</span></li>
+                                            <li><a href="#/">Healthcare</a><span>(3)</span></li>
+                                            <li><a href="#/">Industry</a><span>(2)</span></li>
+                                            <li><a href="#/">Law</a><span>(3)</span></li>
+                                            <li><a href="#/">Life Style</a><span>(14)</span></li>
+                                            <li><a href="#/">Technology</a><span>(7)</span></li>
+                                            <li><a href="#/">Travel</a><span>(5)</span></li>
+                                            <li><a href="#/">Uncategorized</a><span>(2)</span></li>
+                                            <li><a href="#/">Video</a><span>(7)</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--== End Sidebar Item ==-->
+
+                            <!--== Start Sidebar Item ==-->
+                            <div class="sidebar-item">
+                                <h4 class="sidebar-title">热榜</h4>
+                                <div class="sidebar-body" id="hot-content">
+                                    <!--== Start Blog Item ==-->
+                                    <div class="sidebar-post-item">
+                                        <div class="inner-content">
+                                            <div class="thumb">
+                                                <a href="blog-single.html"><img src="/assets/img/blog/small1.jpg"
+                                                                                alt="Image-HasTech"></a>
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="title"><a href="blog-single.html">Telescopes 101</a></h4>
+                                                <ul class="meta">
+                                                    <li>October 27, 2021</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--== End Blog Item ==-->
+
+                                    <!--== Start Blog Item ==-->
+                                    <div class="sidebar-post-item">
+                                        <div class="inner-content">
+                                            <div class="thumb">
+                                                <a href="blog-single.html"><img src="/assets/img/blog/small2.jpg"
+                                                                                alt="Image-HasTech"></a>
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="title"><a href="blog-single.html">The Flash Tutorial</a></h4>
+                                                <ul class="meta">
+                                                    <li>October 27, 2021</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--== End Blog Item ==-->
+
+                                    <!--== Start Blog Item ==-->
+                                    <div class="sidebar-post-item">
+                                        <div class="inner-content">
+                                            <div class="thumb">
+                                                <a href="blog-single.html"><img src="/assets/img/blog/small3.jpg"
+                                                                                alt="Image-HasTech"></a>
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="title"><a href="blog-single.html">Astronomy Or Astrology</a>
+                                                </h4>
+                                                <ul class="meta">
+                                                    <li>October 27, 2021</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--== End Blog Item ==-->
+
+                                    <!--== Start Blog Item ==-->
+                                    <div class="sidebar-post-item">
+                                        <div class="inner-content">
+                                            <div class="thumb">
+                                                <a href="blog-single.html"><img src="/assets/img/blog/small4.jpg"
+                                                                                alt="Image-HasTech"></a>
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="title"><a href="blog-single.html">Tremblant In Canada</a>
+                                                </h4>
+                                                <ul class="meta">
+                                                    <li>October 27, 2021</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--== End Blog Item ==-->
+
+                                    <!--== Start Blog Item ==-->
+                                    <div class="sidebar-post-item">
+                                        <div class="inner-content">
+                                            <div class="thumb">
+                                                <a href="blog-single.html"><img src="/assets/img/blog/small5.jpg"
+                                                                                alt="Image-HasTech"></a>
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="title"><a href="blog-single.html">Are You Struggling In
+                                                    Life</a></h4>
+                                                <ul class="meta">
+                                                    <li>October 27, 2021</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--== End Blog Item ==-->
+                                </div>
+                            </div>
+                            <!--== End Sidebar Item ==-->
+
+                            <!--== Start Sidebar Item ==-->
+                            <div class="sidebar-item">
+                                <h4 class="sidebar-title">@知乎</h4>
+                                <div class="sidebar-body">
+                                    <div class="row row-gutter-20 sidebar-gallery-wrapper">
+                                        <div class="col-4">
+                                            <div class="gallery-item">
+                                                <img src="/assets/img/gallery/ins1.jpg" alt="Image-HasTech">
+                                                <span class="lastudioicon-b-instagram"></span>
+                                                <a href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="gallery-item">
+                                                <img src="/assets/img/gallery/ins2.jpg" alt="Image-HasTech">
+                                                <span class="lastudioicon-b-instagram"></span>
+                                                <a href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="gallery-item">
+                                                <img src="/assets/img/gallery/ins3.jpg" alt="Image-HasTech">
+                                                <span class="lastudioicon-b-instagram"></span>
+                                                <a href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="gallery-item">
+                                                <img src="/assets/img/gallery/ins4.jpg" alt="Image-HasTech">
+                                                <span class="lastudioicon-b-instagram"></span>
+                                                <a href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="gallery-item">
+                                                <img src="/assets/img/gallery/ins5.jpg" alt="Image-HasTech">
+                                                <span class="lastudioicon-b-instagram"></span>
+                                                <a href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="gallery-item">
+                                                <img src="/assets/img/gallery/ins6.jpg" alt="Image-HasTech">
+                                                <span class="lastudioicon-b-instagram"></span>
+                                                <a href="#"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--== End Sidebar Item ==-->
+                        </div>
+                        <!--== End Sidebar Wrapper ==-->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--== End Section Area Wrapper ==-->
+    </main>
+
+    <footer th:replace="module/footer :: footer"></footer>
+    <div th:replace="module/to-top :: to-top"></div>
+    <block th:include="module/auth :: auth"></block>
+    <script th:include="module/auth-script :: auth"></script>
+    <aside th:replace="module/side-moible-menu :: side-menu"></aside>
+    <!--    <div th:replace="module/side-menu :: side-menu"></div>-->
+    <div th:replace="module/search :: search"></div>
+</div>
+<th:block th:include="module/footer-script"></th:block>
+</body>
+<script th:inline="javascript">
+    let searchParam = {
+        page: 1,
+        key: [[${searchKey}]]
+    }
+    let listItemTemplate =
+        "<div class='col-12'>\n" +
+        "            <div class='post-item aos-init aos-animate' data-aos='fade-up'>\n" +
+        "                <div class='inner-content post-inner-style3 inner-content-small'>\n" +
+        "                    <div class='content sm-padding-content'>\n" +
+        "                        <h4 class='title'><a href='blog-single.html'>TEMP_TITLE</a></h4>\n" +
+        // "                        <div class='meta-tag'>\n" +
+        // "                            <ul class='tag'>TEMP_TAG</ul>\n" +
+        // "                            <p class='date'>TEMP_TIME</p>\n" +
+        // "                        </div>\n" +
+        "                        <p>TEMP_DESC</p>\n" +
+        "                        <a class='btn' href='/fast/detail/TEMP_ID'><span>签名</span></a>\n" +
+        "                    </div>\n" +
+        "                </div>\n" +
+        "            </div>\n" +
+        "        </div>";
+    let hotItemTemplate = "<div class='sidebar-post-item'>\n" +
+        "        <div class='inner-content'>\n" +
+        "            <div class='content'>\n" +
+        "                <h4 class='title'><a href='blog-single.html'>Telescopes 101</a></h4>\n" +
+        "                <ul class='meta'>\n" +
+        "                    <li>TEMP_TIME</li>\n" +
+        "                </ul>\n" +
+        "            </div>\n" +
+        "        </div>\n" +
+        "    </div>";
+
+
+    $(function () {
+        loadList();
+    });
+
+    $(function () {
+        loadList();
+        $(window).scroll(function () {
+            let totalHeight = parseFloat($(window).height())
+            let lastChildTop = document.getElementById('list-content').lastChild.getBoundingClientRect().top;
+            if (lastChildTop < totalHeight) {
+                loadList();
+            }
+        });
+    });
+
+    let isHave = true;
+
+    let loadList = function () {
+        if (!isHave) {
+            console.log("已经没有数据了");
+            return;
+        }
+        getIdeaList(searchParam, function (data) {
+            if (!data || data.length === 0) {
+                isHave = false;
+                return;
+            }
+            for (let i = 0; i < data.length; i++) {
+                $('#list-content').append(
+                    getItem(data[i])
+                );
+            }
+        })
+    }
+
+    let getItem = function (item) {
+        let TEMP_TITLE = item.ideaVo.title;
+        let TEMP_TAG = getTempTag(item.ideaVo.tags);
+        let TEMP_TIME = item.createTime;
+        let TEMP_DESC = item.ideaVo.desc;
+        let TEMP_ID = item.id;
+        let TEMP = listItemTemplate;
+        let result = TEMP.replace("TEMP_TITLE", TEMP_TITLE).replace("TEMP_TAG", TEMP_TAG).replace("TEMP_TIME", TEMP_TIME).replace("TEMP_DESC", TEMP_DESC).replace("TEMP_ID", TEMP_ID);
+        return result;
+    }
+
+    let getTempTag = function (tags) {
+        if (!tags || tags.length == 0) {
+            return "";
+        }
+        let result = "";
+        for (let i = 0; i < tags.length; i++) {
+            result += "<li><a href='javaScript:void(0);'>" + tags[i].cnName + "</a>" + ((tags.length == i + 1) ? "" : "&nbsp;|&nbsp;") + "</li>";
+        }
+        return result;
+    }
+
+    let getIdeaList = function (data, ck) {
+        $.ajax({
+            url: "/api/idea/search",
+            type: "post",
+            data: data,
+            success: function (res) {
+                alertResponse(res);
+                console.log(res);
+                if (res.code === 0) {
+                    ck && ck(res.data);
+                    searchParam.page++;
+                }
+            }
+        });
+    }
+</script>
+</html>
