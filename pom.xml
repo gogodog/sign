@@ -106,6 +106,13 @@
             <artifactId>dysmsapi20170525</artifactId>
             <version>2.0.4</version>
         </dependency>
+
+        <!-- 帮助依赖，和web项目无关 -->
+        <dependency>
+            <groupId>edu.uci.ics</groupId>
+            <artifactId>crawler4j</artifactId>
+            <version>4.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
