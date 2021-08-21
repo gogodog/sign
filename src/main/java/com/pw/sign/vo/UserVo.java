@@ -1,22 +1,19 @@
 package com.pw.sign.vo;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.pw.sign.entity.BaseEntity;
+import com.alibaba.fastjson.JSONObject;
 import com.pw.sign.entity.SysXUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 
-import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Slf4j
 public class UserVo {
 
     private String id;
@@ -41,6 +38,8 @@ public class UserVo {
 
     private String md5;
 
+    private Other other;
+
     public UserVo(SysXUser user, String md5) {
         this.id = user.getId();
         this.username = user.getUsername();
@@ -52,7 +51,15 @@ public class UserVo {
         this.createWhere = user.getCreateWhere();
         this.createTime = user.getCreateTime();
         this.updateTime = user.getUpdateTime();
+        this.other = cetUserOther(user.getOther());
         this.md5 = md5;
+    }
+
+    private Other cetUserOther(String other) {
+        if (StringUtils.isNotEmpty(other)) {
+            return JSONObject.parseObject(other, Other.class);
+        }
+        return null;
     }
 
     public UserVo(SysXUser user) {
@@ -66,5 +73,11 @@ public class UserVo {
         this.createWhere = user.getCreateWhere();
         this.createTime = user.getCreateTime();
         this.updateTime = user.getUpdateTime();
+        this.other = cetUserOther(user.getOther());
+    }
+
+    @Data
+    private static class Other {
+        private String sign;
     }
 }

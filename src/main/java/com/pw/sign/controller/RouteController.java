@@ -96,4 +96,11 @@ public class RouteController {
         return "list";
     }
 
+    @RequestMapping("/self-center")
+    @NeedLogin
+    public String selfCenterPage(ModelMap model, UserVo user) {
+        model.addAttribute("user", user);
+        return "self-center";
+    }
+
 }

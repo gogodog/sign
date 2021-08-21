@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:include="module/head :: head"></head>
+</head>
+<body>
+<div class="wrapper coming-soon-page-wrapper">
+    <div th:replace="module/preloader :: preloader"></div>
+    <header th:replace="module/header :: header"></header>
+
+    <main class="main-content">
+        <section class="blog-area blog-details-area">
+            <div class="container">
+                <div class="row no-gutter">
+                    <div class="col-lg-12">
+                        <div class="blog-details-content-wrap">
+                            <div class="author-wrap">
+                                <div class="author-pic">
+                                    <a href="javaScript:void(0);"><img th:src="${user.headImg}" alt="Image-HasTech"></a>
+                                </div>
+                                <div class="author-info">
+                                    <h5 class="title"><a href="javaScript:void(0);" th:text="${user.nickName}">张三</a>
+                                    </h5>
+                                    <p th:if="${user.other != null && user.other.sign != null }"
+                                       th:text="${user.other.sign}"></p>
+                                    <a href="btn-link"><i class="lastudioicon-b-facebook"></i></a>
+                                    <a href="btn-link"><i class="lastudioicon-b-twitter"></i></a>
+                                    <a href="btn-link"><i class="lastudioicon-b-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="module/footer :: footer"></footer>
+    <div th:replace="module/to-top :: to-top"></div>
+    <block th:include="module/auth :: auth"></block>
+    <script th:include="module/auth-script :: auth"></script>
+    <aside th:replace="module/side-moible-menu :: side-menu"></aside>
+    <!--    <div th:replace="module/side-menu :: side-menu"></div>-->
+    <div th:replace="module/search :: search"></div>
+</div>
+<th:block th:include="module/footer-script"></th:block>
+</body>
+</html>

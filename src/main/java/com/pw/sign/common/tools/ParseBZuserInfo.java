@@ -23,12 +23,12 @@ public class ParseBZuserInfo {
         List<String> sqlVals = sqlValsHandler(jsons);
         String stepSql = sqlTemp;
         for (int i = 0; i < sqlVals.size(); i++) {
-            if(i!=0){
-                if(i+1 == sqlVals.size() || i%step == 0){
+            if (i != 0) {
+                if (i + 1 == sqlVals.size() || i % step == 0) {
                     stepSql += ";";
                     print(stepSql);
                     stepSql = sqlTemp;
-                }else{
+                } else {
                     stepSql += ",";
                 }
             }
@@ -47,7 +47,7 @@ public class ParseBZuserInfo {
         List<String> vals = new ArrayList<>();
         for (int i = 0; i < jsons.size(); i++) {
             String val = assembleSqlVal(jsons.get(i));
-            if(StringUtils.isNotEmpty(val)){
+            if (StringUtils.isNotEmpty(val)) {
                 vals.add(val);
             }
         }
@@ -57,7 +57,7 @@ public class ParseBZuserInfo {
     private static String assembleSqlVal(JSONObject jsonObject) {
         String val = "('%s', '%s', '%s', '%s', '%s', %s, '%s', '%s', '%s', '%s', '%s', '%s', '%s')";
         JSONObject u = JSONObject.parseObject(JSONObject.toJSONString(RandomUserInfo.getAddress()));
-        if(filterNo(jsonObject,"sign")){
+        if (filterNo(jsonObject, "sign")) {
             return null;
         }
         return String.format(val,
@@ -74,12 +74,12 @@ public class ParseBZuserInfo {
                 "2021-08-21 19:42:00",
                 UUID.randomUUID().toString(),
                 getOther(jsonObject.getString("sign"))
-                );
+        );
     }
 
     private static boolean filterNo(JSONObject jsonObject, String... vars) {
-        for (String var: vars) {
-            if(StringUtils.isEmpty(jsonObject.getString(var))){
+        for (String var : vars) {
+            if (StringUtils.isEmpty(jsonObject.getString(var))) {
                 return true;
             }
         }
@@ -93,10 +93,10 @@ public class ParseBZuserInfo {
     }
 
     private static int getSexTag(String sex) {
-        if("男".equals(sex)){
+        if ("男".equals(sex)) {
             return 1;
         }
-        if("女".equals(sex)){
+        if ("女".equals(sex)) {
             return 2;
         }
         return 3;
@@ -105,7 +105,7 @@ public class ParseBZuserInfo {
     private static List<JSONObject> toJson(List<String> lines) {
         List<JSONObject> jsons = new ArrayList<>();
         for (int i = 0; i < lines.size(); i++) {
-            if(StringUtils.isEmpty(lines.get(i))){
+            if (StringUtils.isEmpty(lines.get(i))) {
                 continue;
             }
             jsons.add(JSONObject.parseObject(lines.get(i)).getJSONObject("data"));
@@ -113,11 +113,11 @@ public class ParseBZuserInfo {
         return jsons;
     }
 
-    private static void writeFileContent(String fileName, List<String> lines){
-        try{
-            FileWriter writer=new FileWriter(fileName,true);
+    private static void writeFileContent(String fileName, List<String> lines) {
+        try {
+            FileWriter writer = new FileWriter(fileName, true);
             for (String line : lines) {
-                writer.write(line+"\r\n");
+                writer.write(line + "\r\n");
             }
             writer.close();
         } catch (IOException e) {
