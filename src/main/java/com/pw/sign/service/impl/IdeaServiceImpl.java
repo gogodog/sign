@@ -61,4 +61,12 @@ public class IdeaServiceImpl extends ServiceImpl<IdeaMapper, Idea> implements Id
         IPage<Idea> iPage = this.ideaMapper.selectPage(page, queryWrapper);
         return iPage.getRecords();
     }
+
+    @Override
+    public List<Idea> getListByAuthorId(String id) {
+        LambdaQueryWrapper<Idea> queryWrapper = Wrappers.lambdaQuery();
+        queryWrapper.eq(Idea::getCreator, id);
+        queryWrapper.orderByDesc(Idea::getCreateTime);
+        return this.ideaMapper.selectList(queryWrapper);
+    }
 }

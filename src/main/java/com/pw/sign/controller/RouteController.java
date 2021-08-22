@@ -99,7 +99,9 @@ public class RouteController {
     @RequestMapping("/self-center")
     @NeedLogin
     public String selfCenterPage(ModelMap model, UserVo user) {
+        List<Idea> ideas = this.ideaService.getListByAuthorId(user.getId());
         model.addAttribute("user", user);
+        model.addAttribute("ideas", ideas);
         return "self-center";
     }
 

@@ -30,16 +30,18 @@ public class HandlerJobServiceImpl implements HandlerJobService {
         LambdaQueryWrapper<SysXUser> queryWrapper = Wrappers.lambdaQuery();
         queryWrapper.likeRight(SysXUser::getHeadImg, "http");
         List<SysXUser> rows = this.sysXUserMapper.selectList(queryWrapper);
+        int i = 0;
         for (SysXUser row : rows) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    userHeadImgToBase64HandlerRow(row);
-                }
-            }).start();
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+            i += userHeadImgToBase64HandlerRow(row);
+            log.info("updated {} rows", i);
+//                }
+//            }).start();
 
         }
-        return rows.size();
+        return i;
     }
 
     private int userHeadImgToBase64HandlerRow(SysXUser row) {
@@ -50,6 +52,7 @@ public class HandlerJobServiceImpl implements HandlerJobService {
             newUser.setId(row.getId());
             return this.sysXUserMapper.updateById(newUser);
         } catch (Exception e) {
+            log.error(e.getMessage());
             return 0;
         }
 

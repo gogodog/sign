@@ -1,6 +1,7 @@
 package com.pw.sign.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.pw.sign.entity.Idea;
 import com.pw.sign.entity.SignSign;
 import com.pw.sign.vo.IdeaSignVoRequest;
 
@@ -17,4 +18,6 @@ public interface SignService extends IService<SignSign> {
     int sign(IdeaSignVoRequest vo);
 
     List<SignSign> listByIdeaId(Integer id);
+
+    List<Idea> getListBySign(String id);
 }

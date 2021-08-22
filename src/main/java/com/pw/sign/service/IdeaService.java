@@ -22,4 +22,6 @@ public interface IdeaService extends IService<Idea> {
     List<Idea> getList();
 
     List<Idea> searchPage(SearchRequest searchRequest);
+
+    List<Idea> getListByAuthorId(String id);
 }
