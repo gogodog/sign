@@ -35,3 +35,32 @@
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #0d6efd;
 }
+
+.faq-accordion-item:first-child{
+    margin-top: 3px;
+}
+
+.author-wrap {
+    background-color: #fff;
+}
+
+.blog-details-content-wrap {
+    -webkit-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+    padding: 0;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 991px){
+    .blog-details-content-wrap {
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 650px){
+    .blog-details-content-wrap {
+        padding-bottom: 0px;
+    }
+}
+
+

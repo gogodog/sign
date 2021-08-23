@@ -51,6 +51,11 @@
                                         <div class="faq-accordion-body">
                                             <h4 th:text="${i.ideaVo.title}"></h4>
                                             <p th:text="${i.ideaVo.desc}"></p>
+                                            <div class="operate-show-button">
+                                                <div><a>签名</a><a>100</a></div>
+                                                <div><a>签名</a><a>100</a></div>
+                                                <div><a>签名</a><a>100</a></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -124,9 +129,13 @@
 </div>
 <th:block th:include="module/footer-script"></th:block>
 <script>
+    let onloadFlags = {
+        'tab-signs' : false
+    }
     $('[href=#tab-signs]').on('show.bs.tab', function (e) {
-        console.log(1)
-        console.log(e.target + "--" + e.relatedTarget)
+        if(onloadFlags['tag-signs']){
+            return;
+        }
         let signIdeasTemplate =
             "<div class='faq-accordion-item'>\n" +
             "                <div class='faq-accordion-body'>\n" +
@@ -142,7 +151,8 @@
                 success: function (res) {
                     console.log(res)
                     if(res.code === 0){
-                        return ck && ck(res.data);
+                        onloadFlags['tag-signs'] = ck && ck(res.data);
+                        return;
                     }
                     //提示异常
                     alert(res.msg);
@@ -152,7 +162,8 @@
 
         getSignIdeas(function (data){
             if(!data || data.length === 0){
-                return alert('没有签名文章');
+                alert('没有签名文章');
+                return false;
             }
             for (let i = 0; i < data.length; i++) {
                 let TEMP_TITLE = data[i].ideaVo.title;
@@ -160,7 +171,7 @@
                 let temp = signIdeasTemplate.replace("TEMP_TITLE", TEMP_TITLE).replace("TEMP_DESC", TEMP_DESC);
                 $('#tab-signs-wrapper').append(temp);
             }
-
+            return true;
         });
     })
 </script>

@@ -169,3 +169,38 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
+.operate-show-button {
+    display: flex;
+}
+
+.operate-show-button div {
+    margin-right: 1px;
+    padding: 0px 10px;
+    background-color: #ff631b;
+    color: #fff;
+    font-size: 12px;
+}
+
+.operate-show-button div:last-child {
+    border-radius: 0px 50px 50px 0px;
+}
+
+.operate-show-button div:first-child {
+    border-radius: 50px 0px 0px 50px;
+}
+
+.operate-show-button div a {
+    color: black;
+}
+
+.operate-show-button div a:last-child {
+    margin-right: 1px;
+}
+
+.operate-show-button div a:first-child {
+    margin-left: 1px;
+}
+
+
+
