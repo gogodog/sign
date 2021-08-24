@@ -22,7 +22,9 @@ public enum BaseResponseCode implements ResponseCodeInterface {
     NO_USER(402003, "用户不存在"),
     EXISTED_USER(402004, "用户已存在"),
     NO_LOGIN(402005, "用户未登录"),
-    TEL_FORMAT_ERROR(402006, "电话号码格式错误");
+    TEL_FORMAT_ERROR(402006, "电话号码格式错误"),
+    FOLLOW_ADD_SUCCESS(403000, "关注成功"),
+    FOLLOW_CANCEL_SUCCESS(403001, "关注取消成功");
 
     /**
      * 错误码

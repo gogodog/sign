@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .faq-accordion-wrapper .faq-accordion-body {
-    padding: 30px 30px 30px 19px ;
+    padding: 20px 20px 20px 20px ;
 }
 
 .author-wrap{
@@ -60,6 +60,67 @@
 @media (max-width: 650px){
     .blog-details-content-wrap {
         padding-bottom: 0px;
+    }
+}
+
+.faq-accordion-wrapper .faq-accordion-item:last-child {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.faq-accordion-wrapper .faq-accordion-item {
+    border-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.img-wall {
+
+}
+
+.img-wall .row-4{
+    position: relative;
+    text-align: center;
+    width: 20%;
+    float: left;
+    padding: 5px;
+    padding-bottom: 20%;
+    height: 0;
+}
+
+.img-wall .row-4 img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    padding: 6%;
+    border-radius: 200px;
+}
+
+.img-wall .row-4 a{
+    position: absolute;
+    bottom: 0px;
+    width: 88%;
+    background: black;
+    opacity: 0.5;
+    color: white;
+    right: 0;
+    padding: 1px 0;
+    font-size: 1rem;
+    left: 6%
+}
+
+@media (max-width: 650px){
+    .img-wall .row-4{
+        position: relative;
+        text-align: center;
+        width: 25%;
+        float: left;
+        padding: 5px;
+        padding-bottom: 25%;
+        height: 0;
+    }
+    .img-wall .row-4 a{
+        font-size: 0.1rem;
     }
 }
 

@@ -17,12 +17,14 @@
                         <div class="blog-details-content-wrap">
                             <div class="author-wrap">
                                 <div class="author-pic">
-                                    <a href="javaScript:void(0);"><img  style="max-width: 100px;" th:src="${user.headImg}" alt="Image-HasTech"></a>
+                                    <a href="javaScript:void(0);"><img style="max-width: 100px;"
+                                                                       th:src="${user.headImg}" alt="Image-HasTech"></a>
                                 </div>
                                 <div class="author-info">
                                     <h5 class="title"><a href="javaScript:void(0);" th:text="${user.nickName}">张三</a>
                                     </h5>
-                                    <p th:if="${user.other != null && user.other.sign != null }" th:text="${user.other.sign}"></p>
+                                    <p th:if="${user.other != null && user.other.sign != null }"
+                                       th:text="${user.other.sign}"></p>
                                 </div>
                             </div>
                         </div>
@@ -47,10 +49,17 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="tab-ideas">
                                 <div class="faq-accordion-wrapper" id="tab-ideas-wrapper">
-                                    <div th:if="${not #lists.isEmpty(ideas)}" th:each="i,s:${ideas}" class="faq-accordion-item">
+                                    <div th:if="${not #lists.isEmpty(ideas)}" th:each="i,s:${ideas}"
+                                         class="faq-accordion-item">
                                         <div class="faq-accordion-body">
-                                            <h4 th:text="${i.ideaVo.title}"></h4>
-                                            <p th:text="${i.ideaVo.desc}"></p>
+                                            <div class="content">
+                                                <!--                                                <div class="img-content">-->
+                                                <!--                                                </div>-->
+                                                <div>
+                                                    <h4 th:text="${i.ideaVo.title}"></h4>
+                                                    <p th:text="${i.ideaVo.desc}"></p>
+                                                </div>
+                                            </div>
                                             <div class="operate-show-button">
                                                 <div><a>签名</a><a>100</a></div>
                                                 <div><a>签名</a><a>100</a></div>
@@ -66,55 +75,19 @@
                             </div>
                             <div class="tab-pane fade" id="tab-eyes">
                                 <div class="faq-accordion-wrapper">
-                                    <div class="faq-accordion-item">
-                                        <div class="faq-accordion-body">
-                                            <h4>Fusce interdum ultricies convallis</h4>
-                                            <p>Nulla imperdiet odio tempor nisl vulputate scelerisque. Fusce interdum
-                                                ultricies convallis. Vivamus efficitur purus eu elit scelerisque
-                                                blandit. Nullam viverra est quis erat fringilla, at rutrum sem
-                                                lacinia.Nulla imperdiet odio tempor nisl vulputate scelerisque. Fusce
-                                                interdum ultricies convallis. Vivamus efficitur purus eu elit
-                                                scelerisque blandit. Nullam viverra est quis erat fringilla, at rutrum
-                                                sem lacinia.Nulla imperdiet odio tempor nisl vulputate scelerisque.
-                                                Fusce interdum ultricies convallis. Vivamus efficitur purus eu elit
-                                                scelerisque blandit. Nullam viverra est quis erat fringilla, at rutrum
-                                                sem lacinia.</p>
-                                        </div>
-                                    </div>
+                                    <div class="faq-accordion-item img-wall" id="tab-eyes-wrapper"></div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="tab-fans">
                                 <div class="faq-accordion-wrapper">
-                                    <div class="faq-accordion-item">
-                                        <div class="faq-accordion-body">
-                                            <h4>Fusce interdum ultricies convallis</h4>
-                                            <p>Nulla imperdiet odio tempor nisl vulputate scelerisque. Fusce interdum
-                                                ultricies convallis. Vivamus efficitur purus eu elit scelerisque
-                                                blandit. Nullam viverra est quis erat fringilla, at rutrum sem
-                                                lacinia.Nulla imperdiet odio tempor nisl vulputate scelerisque. Fusce
-                                                interdum ultricies convallis. Vivamus efficitur purus eu elit
-                                                scelerisque blandit. Nullam viverra est quis erat fringilla, at rutrum
-                                                sem lacinia.Nulla imperdiet odio tempor nisl vulputate scelerisque.
-                                                Fusce interdum ultricies convallis. Vivamus efficitur purus eu elit
-                                                scelerisque blandit. Nullam viverra est quis erat fringilla, at rutrum
-                                                sem lacinia.</p>
-                                        </div>
-                                    </div>
+                                    <div class="faq-accordion-item img-wall" id="tab-fans-wrapper"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
         </section>
-
-
-
 
 
     </main>
@@ -128,15 +101,100 @@
     <div th:replace="module/search :: search"></div>
 </div>
 <th:block th:include="module/footer-script"></th:block>
+</body>
 <script>
+    let userId = "0b11c229-400c-46ab-ba24-383e1cee5e9a";
     let onloadFlags = {
-        'tab-signs' : false
+        'tab-signs': false,
+        'tab-eyes': false
     }
-    $('[href=#tab-signs]').on('show.bs.tab', function (e) {
-        if(onloadFlags['tag-signs']){
+    $('[href=#tab-eyes]').on('show.bs.tab', function (e) {
+        if (onloadFlags['tab-eyes']) {
             return;
         }
-        let signIdeasTemplate =
+        let template =
+            "<div class='row-4'>\n" +
+            "        <img src='TEMP_HEAD'>\n" +
+            "            <a>TEMP_NAME</a>\n" +
+            "    </div>";
+
+        function req(ck) {
+            $.ajax({
+                url: "/api/follow/follow",
+                method: "POST",
+                data: {user: userId},
+                success: function (res) {
+                    console.log(res)
+                    if (res.code === 0) {
+                        onloadFlags['tab-eyes'] = ck && ck(res.data);
+                        return;
+                    }
+                    //提示异常
+                    alert(res.msg);
+                }
+            });
+        }
+        req(function (data) {
+            if (!data || data.length === 0) {
+                alert('没有关注者');
+                return false;
+            }
+            for (let i = 0; i < data.length; i++) {
+                let TEMP_HEAD = data[i].aUserHead;
+                let TEMP_NAME = data[i].aUserName;
+                let temp = template.replace("TEMP_HEAD", TEMP_HEAD).replace("TEMP_NAME", TEMP_NAME);
+                $('#tab-eyes-wrapper').append(temp);
+            }
+            return true;
+        });
+    });
+
+    $('[href=#tab-fans]').on('show.bs.tab', function (e) {
+        if (onloadFlags['tab-fans']) {
+            return;
+        }
+        let template =
+            "<div class='row-4'>\n" +
+            "        <img src='TEMP_HEAD'>\n" +
+            "            <a>TEMP_NAME</a>\n" +
+            "    </div>";
+
+        function req(ck) {
+            $.ajax({
+                url: "/api/follow/fans",
+                method: "POST",
+                data: {user: userId},
+                success: function (res) {
+                    console.log(res)
+                    if (res.code === 0) {
+                        onloadFlags['tab-fans'] = ck && ck(res.data);
+                        return;
+                    }
+                    //提示异常
+                    alert(res.msg);
+                }
+            });
+        }
+        req(function (data) {
+            if (!data || data.length === 0) {
+                alert('没有关注者');
+                return false;
+            }
+            for (let i = 0; i < data.length; i++) {
+                let TEMP_HEAD = data[i].bUserHead;
+                let TEMP_NAME = data[i].bUserName;
+                let temp = template.replace("TEMP_HEAD", TEMP_HEAD).replace("TEMP_NAME", TEMP_NAME);
+                $('#tab-fans-wrapper').append(temp);
+            }
+            return true;
+        });
+    });
+
+    $('[href=#tab-signs]').on('show.bs.tab', function (e) {
+        if (onloadFlags['tag-signs']) {
+            return;
+        }
+        let template =
             "<div class='faq-accordion-item'>\n" +
             "                <div class='faq-accordion-body'>\n" +
             "                    <h4>TEMP_TITLE</h4>\n" +
@@ -144,13 +202,13 @@
             "                </div>\n" +
             "            </div>";
 
-        function getSignIdeas(ck) {
+        function req(ck) {
             $.ajax({
                 url: "/api/sign/list",
                 method: "POST",
                 success: function (res) {
                     console.log(res)
-                    if(res.code === 0){
+                    if (res.code === 0) {
                         onloadFlags['tag-signs'] = ck && ck(res.data);
                         return;
                     }
@@ -160,20 +218,19 @@
             });
         }
 
-        getSignIdeas(function (data){
-            if(!data || data.length === 0){
+        req(function (data) {
+            if (!data || data.length === 0) {
                 alert('没有签名文章');
                 return false;
             }
             for (let i = 0; i < data.length; i++) {
                 let TEMP_TITLE = data[i].ideaVo.title;
                 let TEMP_DESC = data[i].ideaVo.desc;
-                let temp = signIdeasTemplate.replace("TEMP_TITLE", TEMP_TITLE).replace("TEMP_DESC", TEMP_DESC);
+                let temp = template.replace("TEMP_TITLE", TEMP_TITLE).replace("TEMP_DESC", TEMP_DESC);
                 $('#tab-signs-wrapper').append(temp);
             }
             return true;
         });
-    })
+    });
 </script>
-</body>
 </html>
