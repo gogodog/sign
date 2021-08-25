@@ -232,11 +232,18 @@
         // "                            <p class='date'>TEMP_TIME</p>\n" +
         // "                        </div>\n" +
         "                        <p>TEMP_DESC</p>\n" +
-        "                        <a class='btn' href='/fast/detail/TEMP_ID'><span>签名</span></a>\n" +
         "                    </div>\n" +
+        "                    <div class='operate-show-button-line'>\n" +
+        "                        <div class='operate-show-button'>\n" +
+        "                           <div><a href='/fast/detail/TEMP_ID'><i class='bi-eye'></i></a><a>100</a></div>\n" +
+        "                           <div><a><i class='bi-eye'></i></a><a>100</a></div>\n" +
+        "                           <div><a><i class='bi-eye'></i></a><a>100</a></div>\n" +
+        "                       </div>\n" +
+        "                    </div>" +
         "                </div>\n" +
         "            </div>\n" +
         "        </div>";
+
     let hotItemTemplate = "<div class='sidebar-post-item'>\n" +
         "        <div class='inner-content'>\n" +
         "            <div class='content'>\n" +
@@ -291,7 +298,7 @@
         let TEMP_DESC = item.ideaVo.desc;
         let TEMP_ID = item.id;
         let TEMP = listItemTemplate;
-        let result = TEMP.replace("TEMP_TITLE", TEMP_TITLE).replace("TEMP_TAG", TEMP_TAG).replace("TEMP_TIME", TEMP_TIME).replace("TEMP_DESC", TEMP_DESC).replace("TEMP_ID", TEMP_ID);
+        let result = TEMP.replaceAll("TEMP_TITLE", TEMP_TITLE).replaceAll("TEMP_TAG", TEMP_TAG).replaceAll("TEMP_TIME", TEMP_TIME).replaceAll("TEMP_DESC", TEMP_DESC).replaceAll("TEMP_ID", TEMP_ID);
         return result;
     }
 

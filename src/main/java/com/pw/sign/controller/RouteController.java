@@ -80,12 +80,13 @@ public class RouteController {
     }
 
     @GetMapping("/index")
-    public String indexPage(ModelMap model, String nLogin) {
+    public String indexPage(ModelMap model, String nLogin, String rp) {
         List<Idea> ideas = this.ideaService.getList();
         log.info(JSONObject.toJSONString(ideas));
         nLogin = RouteControllerHelper.needLoginHandler(xuserService, nLogin);
         model.addAttribute("list", ideas);
         model.addAttribute("nLogin", nLogin);
+        model.addAttribute("rp", rp);
         return "index";
     }
 

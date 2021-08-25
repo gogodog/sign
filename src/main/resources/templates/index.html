@@ -54,6 +54,7 @@
     <block th:include="module/auth :: auth"></block>
     <script th:include="module/auth-script :: auth"></script>
     <input id="needLogin" style="display: none" th:value="${nLogin}">
+    <input id="rp" style="display: none" th:value="${rp}">
     <aside th:replace="module/side-moible-menu :: side-menu"></aside>
     <div th:replace="module/search :: search"></div>
 </div>

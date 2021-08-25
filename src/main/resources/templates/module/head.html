@@ -45,6 +45,8 @@
         <!--== Main Style CSS ==-->
         <link href="/assets/css/some.css" rel="stylesheet"/>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
         <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -97,6 +99,28 @@
             }
             let alertError = function () {
                 alert("系统繁忙，稍后刷新重试！");
+            }
+            let shwoMsg = function (id, msg, ck){
+                let target = $('#'+id);
+                target.html(msg);
+                target.show('normal');
+                let timer = setTimeout(function (){
+                    target.hide(0, function () {
+                        ck && ck();
+                    })
+                }, 2000)
+            }
+
+            let wantToHost = function() {
+                let currentWwwPath=window.document.location.href;
+                let pathName=window.document.location.pathname;
+                let position=currentWwwPath.indexOf(pathName);
+                let host = currentWwwPath.substring(0,position);
+                return {
+                    path:currentWwwPath,
+                    uri:pathName,
+                    host:host
+                }
             }
         </script>
     </head>

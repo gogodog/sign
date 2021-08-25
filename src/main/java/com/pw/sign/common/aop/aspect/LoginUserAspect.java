@@ -1,11 +1,6 @@
 package com.pw.sign.common.aop.aspect;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.pw.sign.common.aop.annotation.LogAnnotation;
 import com.pw.sign.common.aop.annotation.NeedLogin;
-import com.pw.sign.common.utils.HttpContextUtils;
-import com.pw.sign.common.utils.IPUtils;
 import com.pw.sign.enums.BooleanInt;
 import com.pw.sign.service.XUserService;
 import com.pw.sign.vo.UserVo;
@@ -17,7 +12,9 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +36,8 @@ public class LoginUserAspect {
     XUserService xUserService;
     @Value("${spring.profiles.active}")
     String env;
+    @Resource
+    HttpServletRequest request;
 
     /**
      * 此处的切点是注解的方式
@@ -59,17 +58,29 @@ public class LoginUserAspect {
             Object obj = args[i];
             if (obj instanceof UserVo) {
                 UserVo login = this.xUserService.getUserFromCookie();
-                if ("dev".equals(env)) {//测试环境植入一个值
+                if ("dev".equals(env) && login != null) {//测试环境植入一个值
                     login = new UserVo(this.xUserService.getById("0b11c229-400c-46ab-ba24-383e1cee5e9a"));
                 }
                 args[i] = login;
                 if (args[i] == null && method(point).isAnnotationPresent(NeedLogin.class)) {
-                    return "redirect:/fast/index?nLogin=" + BooleanInt.YES.getEnCode();
+                    String rp = getRedirectUri();
+                    return "redirect:/fast/index?nLogin=" + BooleanInt.YES.getEnCode() + "&rp="+rp;
                 }
                 break;
             }
         }
         return point.proceed(args);
+    }
+
+    private String getRedirectUri() {
+        ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = sra.getRequest();
+        String uri = request.getRequestURI();
+        log.info("请求开始-各个参数, uri: {}", uri);
+        if(uri.startsWith("/fast/")){
+            return uri;
+        }
+        return "/index/uri";
     }
 
     private Method method(ProceedingJoinPoint point) {

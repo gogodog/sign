@@ -62,8 +62,7 @@
                                 </div>
                                 <div class="tag-conent">
                                     <span>标签:</span>
-                                    <th:block th:if="${not #lists.isEmpty(idea.ideaVo.tags)}"
-                                              th:each="i,s:${idea.ideaVo.tags}">
+                                    <th:block th:if="${not #lists.isEmpty(idea.ideaVo.tags)}" th:each="i,s:${idea.ideaVo.tags}">
                                         <a href="javaScript:void(0);" th:text="${i.cnName}">Mobile</a>
                                         <span th:if="${not s.last}">,</span>
                                     </th:block>
@@ -77,13 +76,12 @@
                                             alt="Image-HasTech" style="max-width: 100px;"></a>
                                 </div>
                                 <div class="author-info">
-                                    <h5 class="title"><a href="javascript:return false;"
-                                                         th:text="${author == null || author.nickName == null ?'那客来' : author.nickName}"></a>
+                                    <h5 class="title"><a href="javascript:return false;" th:text="${author == null || author.nickName == null ?'那客来' : author.nickName}"></a>
                                     </h5>
-                                    <p>风带走的不一定是远去的，远去的不一定是带走的</p>
-                                    <a href="btn-link"><i class="lastudioicon-b-facebook"></i></a>
-                                    <a href="btn-link"><i class="lastudioicon-b-twitter"></i></a>
-                                    <a href="btn-link"><i class="lastudioicon-b-instagram"></i></a>
+                                    <p th:if="${not #strings.isEmpty(author.other) }" th:text="${author.other.sign}">风带走的不一定是远去的，远去的不一定是带走的</p>
+                                    <a href="btn-link"><i class="bi-eye"></i></a>
+                                    <a href="btn-link"><i class="bi-suit-heart"></i></i></a>
+                                    <a href="btn-link"><i class="bi-star"></i></i></a>
                                 </div>
                             </div>
                             <!--== End Post Author Item ==-->
@@ -95,7 +93,7 @@
                                     <div class="faq-accordion-wrapper" id="inputSign">
                                         <div class="faq-accordion-item">
                                             <h2 class="faq-accordion-heading" id="flush-inputSign-headingOne">
-                                                <button class="faq-accordion-button collapsed" type="button"
+                                                <button id="toTextSignCloseBtn" class="faq-accordion-button collapsed" type="button"
                                                         data-bs-toggle="collapse"
                                                         data-bs-target="#flush-inputSign-collapseOne"
                                                         aria-expanded="false"
@@ -107,6 +105,7 @@
                                                             class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
                                                 </button>
                                             </h2>
+                                            <div class="emsg" id="toTextSignMsg"></div>
                                             <div id="flush-inputSign-collapseOne"
                                                  class="faq-accordion-collapse collapse"
                                                  aria-labelledby="flush-inputSign-headingOne"
@@ -171,11 +170,12 @@
                                                             class="elementor-toggle-icon-opened lastudioicon lastudioicon-e-delete"></i></span>
                                                 </button>
                                             </h2>
-                                            <div id="flush-handSign-collapseOne" class="faq-accordion-collapse collapse"
-                                                 aria-labelledby="flush-handSign-headingOne" data-bs-parent="#handSign">
+                                            <div class="emsg" id="toHandSignMsg"></div>
+                                            <div id="flush-handSign-collapseOne" class="faq-accordion-collapse collapse" aria-labelledby="flush-handSign-headingOne" data-bs-parent="#handSign">
                                                 <div class="faq-accordion-body" style="text-align: center">
-                                                    <div id="handSignArea" style="margin-bottom: 40px;"></div>
+
                                                     <form id="toHandSign" action="/api/sign/idea" method="post">
+                                                        <div id="handSignArea" style="margin-bottom: 40px;"></div>
                                                         <div class="col-lg-12">
                                                             <input style="display: none" name="ideaId"
                                                                    th:value="${idea.id}">
@@ -292,6 +292,18 @@
     function submitAjax(id) {
         $("#" + id).ajaxSubmit(function (response, status) {
             console.log(JSON.stringify(response))
+            shwoMsg(id+"Msg", response.msg, function () {
+                if(response.code === 0){
+                    if('toHandSign' == id){
+                        $("#handSign-btn").click();
+                        resetSignature();
+                    }else if( 'toTextSign' == id){
+                        $("#" + id + "CloseBtn").click();
+                    }
+                }else {
+                    console.log("回调打印：" + JSON.stringify(response));
+                }
+            });
         });
     }
 

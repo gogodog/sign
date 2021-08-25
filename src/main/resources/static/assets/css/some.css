@@ -170,6 +170,18 @@
     overflow: hidden;
 }
 
+.operate-show-button-line {
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+
+.operate-show-button-line .operate-show-button{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .operate-show-button {
     display: flex;
     line-height: 2;
@@ -194,7 +206,7 @@
 }
 
 .operate-show-button div a {
-    color: black;
+    color: white;
 }
 
 .operate-show-button div a:last-child {
@@ -219,6 +231,28 @@
 .faq-accordion-wrapper .faq-accordion-body .content .img-content img{
     width: 100%;
     height: 100%;
+}
+
+.emsgrow {
+    position: relative;
+}
+
+.emsgrow .emsg{
+    position: absolute;
+}
+
+.emsg{
+    color: red;
+    padding: 10px;
+    padding-left: 30px;
+    font-size: 0.5rem;
+    display: none;
+}
+
+@media only screen and (max-width: 575px){
+    .emsg {
+        padding-left: 18px;
+    }
 }
 
 

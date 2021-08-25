@@ -259,10 +259,12 @@
                     type: "post",
                     data: data,
                     success: function (res) {
-                        alertResponse(res);
                         if (res.code === 0) {
                             openBtnForm(formId, 1)
                         }
+                        shwoMsg(formId + "Msg", res.msg, function (){
+                            console.log(form + " get vcode:" + JSON.stringify(res))
+                        })
                     },
                     error: function (e) {
                         alertError();
@@ -279,6 +281,8 @@
 
     function getVerityCode(formId) {
         let form = $('#' + formId);
+        let codeInput = form.find("input[name='verityCode']");
+        codeInput.val("");
         let tel = form.find("input[name='tel']").val() || '';
         let area = $("input[name='telArea']").val() || '';
         if (!tel) {
@@ -294,7 +298,6 @@
             type: "post",
             data: data,
             success: function (res) {
-                alertResponse(res);
                 stopJob();
                 if (res.code === 0) {
                     btn.html("已发送，请填写验证码");
@@ -303,6 +306,9 @@
                     btn.html("请重新请求");
                     AUTH_FLAG[formId] = false;
                 }
+                shwoMsg(formId + "Msg", res.msg, function (){
+                    console.log(form + " get vcode:" + JSON.stringify(res))
+                })
             },
             error: function (e) {
                 alertError();
@@ -335,10 +341,26 @@
         $("#" + id).ajaxSubmit(function (res) {
             alertResponse(res);
             if (res.code === 0) {
-                $(".aside-login-form-close.aside-login-form-close-two").click();
-                initUserOption()
+                redirectToTarget();
+            }else {
+                shwoMsg(id + "Msg", res.msg, function (){
+                    console.log(id + ":" + JSON.stringify(res))
+                })
             }
         });
+    }
+
+    function redirectToTarget() {
+        let localhostPath = wantToHost();
+        let target = $('#rp').val() || false;
+        if(localhostPath.uri === target){
+            $(".aside-login-form-close.aside-login-form-close-two").click();
+            return initUserOption()
+        }
+        if(target){
+            return window.location.href = localhostPath.host + target;
+        }
+        return window.location.href = localhostPath.path;
     }
 
     function initUserOption() {
@@ -379,6 +401,7 @@
         init();
         let needLogin = $('#needLogin').val() || "F";
         console.log(needLogin + "  " + (needLogin == false));
+        console.log("targetPage  " + $('#rp').val());
         if (needLogin === "T") {
             $('#login-btn').click();
             $('#login-btn-form').click();
