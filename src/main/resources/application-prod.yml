@@ -1,4 +1,6 @@
 # 生产环境配置
+server:
+  port: 80
 spring:
   profiles:
     active: prod
@@ -10,6 +12,6 @@ spring:
       datasource:
         master:
           username: root
-          password: 123456
+          password: Yapi1234
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/sign?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2b8
+          url: jdbc:mysql://rm-2zep3xy7yb8h7h3hzyo.mysql.rds.aliyuncs.com:3306/yapi?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2b8
