@@ -90,6 +90,17 @@ public class RouteController {
         return "index";
     }
 
+    @GetMapping("/index-list")
+    public String indexListPage(ModelMap model, String nLogin, String rp) {
+        List<Idea> ideas = this.ideaService.getList();
+        log.info(JSONObject.toJSONString(ideas));
+        nLogin = RouteControllerHelper.needLoginHandler(xuserService, nLogin);
+        model.addAttribute("list", ideas);
+        model.addAttribute("nLogin", nLogin);
+        model.addAttribute("rp", rp);
+        return "index-list";
+    }
+
     @RequestMapping("/list")
     @LogAnnotation
     public String listPage(ModelMap model, String searchKey) {
