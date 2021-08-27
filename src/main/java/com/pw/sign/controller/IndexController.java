@@ -17,7 +17,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String userList() {
-        return "redirect:/fast/index";
+        return "redirect:/fast/index?lang=cn";
     }
 
     @GetMapping("/t")
