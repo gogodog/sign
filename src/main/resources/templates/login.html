@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:include="module/head :: head"></head>
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="module/preloader :: preloader"></div>
+    <header class="header-area header-style2 transparent" th:fragment="header-index">
+        <div class="container-fluid">
+            <div class="row no-gutter align-items-center position-relative">
+                <div class="col" style="max-width: 75%">
+                    <div class="header-logo-area">
+                        <a href="/fast/index-list">
+                            <img class="logo-main" style="max-width: 60px" src="/assets/img/logo-light.png" alt="Logo"/>
+                            <img class="logo" style="max-width: 60px" src="/assets/img/logo.png" alt="Logo"/>
+                        </a>
+                    </div>
+                    <div class="header-navigation-area">
+                        <ul class="main-menu nav">
+                            <li class="has-submenu"><a href="/fast/create"><span>建立愿望</span></a></li>
+                            <li class="has-submenu"><a href="/fast/my-idea-list"><span>我的愿望</span></a></li>
+                            <li class="has-submenu"><a href="/fast/self-center"><span>个人主页</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col" style="max-width: 1%"></div>
+                <div class="col">
+                    <div class="header-action-area">
+                        <div class="info-box">
+                            <button id="logout-btn" class="btn-cart-menu"><i class="lastudioicon-user-1"></i></button>
+                            <button id="login-btn" class="btn-cart-menu aside-login-form-register-open"><i class="lastudioicon-user-2"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!--== Start Hero Area Wrapper ==-->
+        <section class="home-slider-area">
+            <div class="swiper-container home2-slider-container">
+                <div class="swiper-wrapper home-slider-wrapper slider-default">
+                    <div class="swiper-slide">
+                        <div class="slider-content-area">
+                            <a class="slider-link"></a>
+                            <div class="slider-overlay"></div>
+                            <div class="slider-thumb" data-bg-img="/assets/img/login/login2.png"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--== Add Swiper Arrows ==-->
+                <div class="social-icons">
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-facebook"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-twitter"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-instagram"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-envato"></i></a>
+                    <a href="#/"><i class="lastudioicon lastudioicon-b-dribbble"></i></a>
+                </div>
+            </div>
+        </section>
+        <!--== End Hero Area Wrapper ==-->
+    </main>
+
+    <div th:replace="module/to-top :: to-top"></div>
+    <block th:include="module/auth :: auth"></block>
+    <script th:include="module/auth-script :: auth"></script>
+    <aside th:replace="module/side-moible-menu :: side-menu"></aside>
+    <div th:replace="module/search :: search"></div>
+</div>
+<th:block th:insert="module/footer-script"></th:block>
+</body>
+</html>
